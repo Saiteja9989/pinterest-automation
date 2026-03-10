@@ -5,7 +5,10 @@ dist
 apikeys.md
 credentials.json
 token.json
-config.py
+node_modules/
+.venv/
+__pycache__/
+*.pyc
 
 # Ignore the output video from Git but not videos you import into src/.
 out
