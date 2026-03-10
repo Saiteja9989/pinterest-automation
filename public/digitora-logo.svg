@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+
+    <!-- Background radial gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="42%" r="55%">
+      <stop offset="0%"   stop-color="#162030"/>
+      <stop offset="100%" stop-color="#09111f"/>
+    </radialGradient>
+
+    <!-- Gold gradient for shield + D -->
+    <linearGradient id="goldGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="#f0d980"/>
+      <stop offset="45%"  stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#8a6820"/>
+    </linearGradient>
+
+    <!-- Soft inner gold fill for shield -->
+    <radialGradient id="shieldFill" cx="50%" cy="38%" r="60%">
+      <stop offset="0%"   stop-color="#c9a84c" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0.02"/>
+    </radialGradient>
+
+    <!-- Glow filter for D -->
+    <filter id="glowD" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glow filter for shield -->
+    <filter id="glowShield" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Outer ring glow -->
+    <filter id="ringGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+  </defs>
+
+  <!-- ── Background circle ── -->
+  <circle cx="250" cy="250" r="250" fill="url(#bgGrad)"/>
+
+  <!-- ── Outer ring ── -->
+  <circle cx="250" cy="250" r="238"
+          fill="none"
+          stroke="url(#goldGrad)"
+          stroke-width="1.2"
+          stroke-opacity="0.35"
+          filter="url(#ringGlow)"/>
+
+  <!-- ── Shield fill (subtle) ── -->
+  <path d="M 250,88
+           L 372,124
+           L 395,295
+           Q 388,382 250,442
+           Q 112,382 105,295
+           L 128,124 Z"
+        fill="url(#shieldFill)"/>
+
+  <!-- ── Shield outer stroke ── -->
+  <path d="M 250,88
+           L 372,124
+           L 395,295
+           Q 388,382 250,442
+           Q 112,382 105,295
+           L 128,124 Z"
+        fill="none"
+        stroke="url(#goldGrad)"
+        stroke-width="3"
+        stroke-linejoin="round"
+        filter="url(#glowShield)"/>
+
+  <!-- ── Shield inner stroke (double-line effect) ── -->
+  <path d="M 250,104
+           L 358,136
+           L 378,294
+           Q 372,368 250,422
+           Q 128,368 122,294
+           L 142,136 Z"
+        fill="none"
+        stroke="#c9a84c"
+        stroke-width="1"
+        stroke-opacity="0.28"
+        stroke-linejoin="round"/>
+
+  <!-- ── Horizontal accent line under top shield edge ── -->
+  <line x1="160" y1="162" x2="340" y2="162"
+        stroke="#c9a84c" stroke-width="0.8" stroke-opacity="0.25"/>
+
+  <!-- ── Letter D ── -->
+  <text x="254" y="302"
+        font-family="'Arial Black', 'Arial', sans-serif"
+        font-size="212"
+        font-weight="900"
+        fill="url(#goldGrad)"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        filter="url(#glowD)"
+        letter-spacing="-4">D</text>
+
+  <!-- ── DIGITORA wordmark ── -->
+  <text x="250" y="400"
+        font-family="'Arial', sans-serif"
+        font-size="22"
+        font-weight="700"
+        fill="#c9a84c"
+        fill-opacity="0.75"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        letter-spacing="8">DIGITORA</text>
+
+</svg>

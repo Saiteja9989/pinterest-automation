@@ -1,0 +1,70 @@
+{
+  "blog_number": 3,
+  "blog_title": "Why Your Kitchen Drawers Are Always a Mess (And the $15 Fix)",
+  "category": "kitchen",
+  "products": [
+    {
+      "name": "PRODUCT NAME HERE",
+      "price": "$00.00",
+      "rating": "4.x",
+      "affiliate_link": "https://amzn.to/XXXXX",
+      "image_url": "https://amazon.com/image.jpg"
+    },
+    {
+      "name": "PRODUCT NAME HERE",
+      "price": "$00.00",
+      "rating": "4.x",
+      "affiliate_link": "https://amzn.to/XXXXX",
+      "image_url": "https://amazon.com/image.jpg"
+    },
+    {
+      "name": "PRODUCT NAME HERE",
+      "price": "$00.00",
+      "rating": "4.x",
+      "affiliate_link": "https://amzn.to/XXXXX",
+      "image_url": "https://amazon.com/image.jpg"
+    },
+    {
+      "name": "PRODUCT NAME HERE",
+      "price": "$00.00",
+      "rating": "4.x",
+      "affiliate_link": "https://amzn.to/XXXXX",
+      "image_url": "https://amazon.com/image.jpg"
+    },
+    {
+      "name": "PRODUCT NAME HERE",
+      "price": "$00.00",
+      "rating": "4.x",
+      "affiliate_link": "https://amzn.to/XXXXX",
+      "image_url": "https://amazon.com/image.jpg"
+    },
+    {
+      "name": "PRODUCT NAME HERE",
+      "price": "$00.00",
+      "rating": "4.x",
+      "affiliate_link": "https://amzn.to/XXXXX",
+      "image_url": "https://amazon.com/image.jpg"
+    },
+    {
+      "name": "PRODUCT NAME HERE",
+      "price": "$00.00",
+      "rating": "4.x",
+      "affiliate_link": "https://amzn.to/XXXXX",
+      "image_url": "https://amazon.com/image.jpg"
+    },
+    {
+      "name": "PRODUCT NAME HERE",
+      "price": "$00.00",
+      "rating": "4.x",
+      "affiliate_link": "https://amzn.to/XXXXX",
+      "image_url": "https://amazon.com/image.jpg"
+    },
+    {
+      "name": "PRODUCT NAME HERE",
+      "price": "$00.00",
+      "rating": "4.x",
+      "affiliate_link": "https://amzn.to/XXXXX",
+      "image_url": "https://amazon.com/image.jpg"
+    }
+  ]
+}

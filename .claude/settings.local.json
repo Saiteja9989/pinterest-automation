@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 scripts/download_assets.py)",
+      "Bash(ffprobe -v quiet -print_format json -show_format -show_streams \"/c/Users/saite/Desktop/youtube/public/demo/demo_video.mp4\")"
+    ]
+  }
+}
