@@ -4,7 +4,7 @@
 
 ---
 
-## Progress: 8/100 Completed
+## Progress: 12/100 Completed
 
 | # | Blog Title | Status |
 |---|---|---|

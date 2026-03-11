@@ -1,70 +1,56 @@
 {
-  "blog_number": 3,
-  "blog_title": "Why Your Kitchen Drawers Are Always a Mess (And the $15 Fix)",
+  "blog_number": 12,
+  "blog_title": "I Organized My Messy Utensil Drawer with a $12 Organizer",
   "category": "kitchen",
   "products": [
     {
-      "name": "PRODUCT NAME HERE",
-      "price": "$00.00",
-      "rating": "4.x",
-      "affiliate_link": "https://amzn.to/XXXXX",
-      "image_url": "https://amazon.com/image.jpg"
+      "name": "OXO Good Grips Kitchen Drawer, Expandable Utensil Organizer, White",
+      "price": "$24.95",
+      "rating": "4.8",
+      "affiliate_link": "https://amzn.to/3PeFqy6",
+      "image_url": "https://m.media-amazon.com/images/I/41bN2hNjy8L._AC_SL1000_.jpg"
     },
     {
-      "name": "PRODUCT NAME HERE",
-      "price": "$00.00",
-      "rating": "4.x",
-      "affiliate_link": "https://amzn.to/XXXXX",
-      "image_url": "https://amazon.com/image.jpg"
+      "name": "Joseph Joseph DrawerStore Compact Utensil Organizer For Kitchen Drawer Silverware, Flatware Tray, Small, Grey",
+      "price": "$11.98",
+      "rating": "4.4",
+      "affiliate_link": "https://amzn.to/4sCHC0P",
+      "image_url": "https://m.media-amazon.com/images/I/61LdtHtlTpL._AC_SL1500_.jpg"
     },
     {
-      "name": "PRODUCT NAME HERE",
-      "price": "$00.00",
-      "rating": "4.x",
-      "affiliate_link": "https://amzn.to/XXXXX",
-      "image_url": "https://amazon.com/image.jpg"
+      "name": "Expandable Bamboo Kitchen Drawer Organizer for Cutlery and Utensils, Adjustable Bamboo Wood Cutlery Tray in Drawer for Flatware and Silverware in Kitchen, (Natural)",
+      "price": "$19.85",
+      "rating": "4.6",
+      "affiliate_link": "https://amzn.to/4utjTlG",
+      "image_url": "https://m.media-amazon.com/images/I/81NBmZUhMjL._AC_SL1500_.jpg"
     },
     {
-      "name": "PRODUCT NAME HERE",
-      "price": "$00.00",
-      "rating": "4.x",
-      "affiliate_link": "https://amzn.to/XXXXX",
-      "image_url": "https://amazon.com/image.jpg"
+      "name": "Simple Houseware Drawer Organizer Tray with 9 Adjustable Compartments, White",
+      "price": "$14.87",
+      "rating": "4.7",
+      "affiliate_link": "https://amzn.to/4dhCuux",
+      "image_url": "https://m.media-amazon.com/images/I/71z4iEimsyL._AC_SL1500_.jpg"
     },
     {
-      "name": "PRODUCT NAME HERE",
-      "price": "$00.00",
-      "rating": "4.x",
-      "affiliate_link": "https://amzn.to/XXXXX",
-      "image_url": "https://amazon.com/image.jpg"
+      "name": "mDesign Adjustable, Expandable Plastic Kitchen Cabinet Drawer Storage Organizer Tray - for Storing Organizing Cutlery, Spoons, Cooking Utensils, Gadgets - 2&#34; High - Clear",
+      "price": "$26.99",
+      "rating": "4.8",
+      "affiliate_link": "https://amzn.to/4be2y7m",
+      "image_url": "https://m.media-amazon.com/images/I/71vNOHTRTvL._AC_SL1500_.jpg"
     },
     {
-      "name": "PRODUCT NAME HERE",
-      "price": "$00.00",
-      "rating": "4.x",
-      "affiliate_link": "https://amzn.to/XXXXX",
-      "image_url": "https://amazon.com/image.jpg"
+      "name": "YouCopia DrawerFit Expandable Kitchen Drawer Organizer: Sliding Storage Tray for Utensils &amp; Accessories in Deep Drawers, Expandable 15\u201323&#34; wide, White Speckled BPA-free",
+      "price": "$21.99",
+      "rating": "5.0",
+      "affiliate_link": "https://amzn.to/3PdmIa8",
+      "image_url": "https://m.media-amazon.com/images/I/714dPqx1enL._AC_SL1500_.jpg"
     },
     {
-      "name": "PRODUCT NAME HERE",
-      "price": "$00.00",
-      "rating": "4.x",
-      "affiliate_link": "https://amzn.to/XXXXX",
-      "image_url": "https://amazon.com/image.jpg"
-    },
-    {
-      "name": "PRODUCT NAME HERE",
-      "price": "$00.00",
-      "rating": "4.x",
-      "affiliate_link": "https://amzn.to/XXXXX",
-      "image_url": "https://amazon.com/image.jpg"
-    },
-    {
-      "name": "PRODUCT NAME HERE",
-      "price": "$00.00",
-      "rating": "4.x",
-      "affiliate_link": "https://amzn.to/XXXXX",
-      "image_url": "https://amazon.com/image.jpg"
+      "name": "VaeFae Adjustable Bamboo Drawer Dividers, Expandable Drawer Organizer for Kitchen, Bedroom, Bathroom, Dresser and Office, 6-Pack",
+      "price": "$39.99",
+      "rating": "4.5",
+      "affiliate_link": "https://amzn.to/4bzaYrf",
+      "image_url": "https://m.media-amazon.com/images/I/81PF3AQ2u5L._AC_SL1500_.jpg"
     }
   ]
 }
