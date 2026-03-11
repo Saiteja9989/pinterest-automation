@@ -10,7 +10,7 @@
 |---|---|---|
 | 1 | 9 Best Under Sink Organizers in 2026 (Ranked by Real Buyers) | ✅ Done |
 | 2 | 9 Best Pantry Organizers and Bins in 2026 (Tested and Ranked) | ✅ Done |
-| 3 | Why Your Kitchen Drawers Are Always a Mess (And the $15 Fix) | ⬜ Pending |
+| 3 | Why Your Kitchen Drawers Are Always a Mess (And the $15 Fix) | ✅ Done |
 | 4 | I Tested 12 Spice Rack Organizers — Only These 9 Are Worth It | ⬜ Pending |
 | 5 | The Secret to a Clutter-Free Kitchen Counter in 2026 | ⬜ Pending |
 | 6 | 9 Refrigerator Organizers That Stop Food Waste for Good | ⬜ Pending |
