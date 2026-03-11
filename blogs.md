@@ -4,7 +4,7 @@
 
 ---
 
-## Progress: 7/100 Completed
+## Progress: 8/100 Completed
 
 | # | Blog Title | Status |
 |---|---|---|
@@ -15,8 +15,8 @@
 | 5 | The Secret to a Clutter-Free Kitchen Counter in 2026 | ✅ Done |
 | 6 | 9 Refrigerator Organizers That Stop Food Waste for Good | ✅ Done |
 | 7 | Stop Buying Bad Cabinet Organizers — Get These Instead | ✅ Done |
-| 8 | How I Organized My Entire Kitchen for Under $60 | ⬜ Pending |
-| 9 | 9 Pantry Door Organizers That Create Hidden Storage Space | ⬜ Pending |
+| 8 | How I Organized My Entire Kitchen for Under $60 | ✅ Done |
+| 9 | 9 Pantry Door Organizers That Create Hidden Storage Space | ✅ Done |
 | 10 | The Best Lazy Susan Organizers Amazon Sells in 2026 | ⬜ Pending |
 | 11 | 7 Kitchen Shelf Organizers That Double Your Storage Instantly | ⬜ Pending |
 | 12 | I Organized My Messy Utensil Drawer with a $12 Organizer | ⬜ Pending |
