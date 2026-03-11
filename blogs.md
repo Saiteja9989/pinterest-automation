@@ -18,7 +18,7 @@
 | 8 | How I Organized My Entire Kitchen for Under $60 | ✅ Done |
 | 9 | 9 Pantry Door Organizers That Create Hidden Storage Space | ✅ Done |
 | 10 | The Best Lazy Susan Organizers Amazon Sells in 2026 | ✅ Done |
-| 11 | 7 Kitchen Shelf Organizers That Double Your Storage Instantly | ⬜ Pending |
+| 11 | 7 Kitchen Shelf Organizers That Double Your Storage Instantly | ✅ Done |
 | 12 | I Organized My Messy Utensil Drawer with a $12 Organizer | ⬜ Pending |
 | 13 | The Only Coffee Station Organizer You Need in 2026 | ⬜ Pending |
 | 14 | 9 Stackable Food Container Organizers for a Pinterest-Worthy Pantry | ⬜ Pending |
