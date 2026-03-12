@@ -598,10 +598,10 @@ def generate_pin_content(blog_title, category, blog_url, products, blog_number=1
         extra_note = ' Also provide "tips": ["tip 1", "tip 2", "tip 3"] (3 specific actionable tips for this category).' if style["name"] == "TIPS LIST" else ' Set "tips": [].'
         pin_rules += f"\nPIN {slot} — {style['name']}: {style['title_rule']}.{extra_note}\n"
 
-    prompt = f"""You are a Pinterest SEO expert for US home organization. 2026.
+    prompt = f"""You are a Pinterest SEO expert targeting US home organization shoppers in 2026.
 Blog: "{blog_title}"
 Category: {category}
-SPECIFIC TOPIC: "{room}" — EVERY pin title and image_headline MUST mention "{room}", NOT just generic "{category}". This is the ONLY product type for this blog.
+SPECIFIC TOPIC: "{room}" — EVERY pin title and image_headline MUST mention "{room}", NOT just generic "{category}".
 Top 3 products: {n1} ({pr1}, {r1}★), {n2} ({pr2}, {r2}★), {n3} ({pr3}, {r3}★)
 Total products: {n_products}
 Website: smarthomeorganizing.com
@@ -610,18 +610,35 @@ Trending searches RIGHT NOW:
 {trending_str}
 
 Generate exactly 10 Pinterest pins. Each has 5 fields:
-1. "title" — max 100 chars, follow the pin's TITLE RULE. MUST reference "{room}" specifically — NEVER write just "kitchen organization" or generic "{category}" when this blog is about "{room}".
-2. "image_headline" — 4-6 words ALL CAPS. MUST contain the word "{room.upper().split()[0]}" or a direct synonym. Will appear as text on the image.
-3. "description" — max 500 chars. Start with keyword phrase referencing "{room}". 2-3 sentences. End with "→ Full list + Amazon links in bio!"
-4. "hashtags" — 12 hashtags as one string: mix #HomeOrganization #AmazonFinds #OrganizationIdeas with niche {category} tags
-5. "tips" — array of 3 short actionable tips (only for TIPS LIST style pins, empty array [] for all others)
 
-TITLE RULES — each pin must follow its exact rule, NO two pins share the same opening word:
+1. "title" — max 100 chars. RULES:
+   - MUST include "2026" OR a price like "{pr1}" OR "Amazon" in at least 6 of the 10 pins
+   - MUST reference "{room}" specifically
+   - Use US buyer language: "Best", "Top", "Under $X", "Worth It", "Actually Work", "Ranked"
+   - NO two pins share the same opening word
+   - Follow the pin's specific TITLE RULE below
+
+2. "image_headline" — 4-6 words ALL CAPS. MUST contain "{room.upper().split()[0]}" or synonym.
+
+3. "description" — max 500 chars:
+   - OPEN with a question US buyers ask: "Tired of...", "Still wasting money on...", "Looking for the best..."
+   - Include the price of the top product ({pr1}) naturally
+   - Mention "Amazon" at least once
+   - 2-3 sentences max
+   - End with "→ Full list + Amazon links in bio!"
+
+4. "hashtags" — 12 hashtags as one string. MUST include:
+   #HomeOrganization2026 #AmazonHome #AmazonFinds #OrganizationIdeas #HomeOrganization
+   Plus 7 niche tags specific to "{room}" and {category}
+
+5. "tips" — array of 3 short actionable tips (only for TIPS LIST style, else [])
+
+TITLE RULES — follow exactly:
 {pin_rules}
 
 COHESION: title → image_headline → description must tell ONE unified story about "{room}".
-BAD example: title "Stop Wasting Kitchen Space" → image_headline "DREAM KITCHEN ORGANIZATION" (wrong — generic kitchen, not about {room})
-GOOD example: title "Stop Buying {room} Bins That Waste Space" → image_headline "STOP BUYING BAD {room.upper()} BINS" → description "Tired of {room} bins that don't stack or fit? We tested {n_products} on Amazon..."
+BAD: title "Stop Wasting Kitchen Space" → image_headline "DREAM KITCHEN ORGANIZATION" (too generic)
+GOOD: title "Best {room} Organizers 2026 (Tested on Amazon)" → image_headline "BEST {room.upper().split()[0]} ORGANIZERS" → description "Tired of {room}s that waste space? We tested {n_products} top-rated Amazon picks..."
 
 Return ONLY a valid JSON array of 10 objects. No markdown, no explanation."""
 
