@@ -34,7 +34,18 @@ def post_to_pinterest(pin):
         "board_id":    pin["board_id"],
     }
     res = requests.post(MAKE_WEBHOOK_URL, json=payload, timeout=30)
-    return res.status_code == 200
+    if res.status_code != 200:
+        print(f"Webhook HTTP error: {res.status_code} — {res.text[:200]}")
+        return False
+    # Make.com instant webhook always returns 200 with {"accepted": true}
+    # It does NOT confirm Pinterest succeeded — Pinterest errors happen async.
+    # To detect Pinterest failures, configure Make.com to use a synchronous
+    # Webhook Response module that returns {"status": "ok"} on success.
+    body = res.json() if res.text else {}
+    if isinstance(body, dict) and body.get("status") == "error":
+        print(f"Make.com returned error: {body}")
+        return False
+    return True
 
 
 def pick_next_pin(pins):
