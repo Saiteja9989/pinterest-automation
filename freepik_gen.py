@@ -5,6 +5,8 @@ import requests
 import time
 import base64
 import os
+from io import BytesIO
+from PIL import Image
 from config import FREEPIK_API_KEY, IMAGE_WIDTH, IMAGE_HEIGHT
 
 FREEPIK_URL    = "https://api.freepik.com/v1/ai/text-to-image/flux-2-pro"
@@ -20,6 +22,17 @@ def load_reference_image():
     return None
 
 
+def _strip_metadata(filepath):
+    """Re-encode image to remove all AI/C2PA metadata that triggers Pinterest's 'AI Modified' label."""
+    try:
+        img   = Image.open(filepath)
+        clean = Image.new(img.mode, img.size)
+        clean.putdata(list(img.getdata()))
+        clean.save(filepath, "JPEG", quality=95, optimize=True)
+    except Exception as e:
+        print(f"  Metadata strip warning: {e}")
+
+
 def download_image(cdn_url, filename):
     """Download image from Freepik CDN to images/ folder before URL expires."""
     os.makedirs(IMAGES_DIR, exist_ok=True)
@@ -29,6 +42,7 @@ def download_image(cdn_url, filename):
         if res.status_code == 200:
             with open(filepath, "wb") as f:
                 f.write(res.content)
+            _strip_metadata(filepath)
             print(f"  Downloaded: {filepath}")
             return filepath
         else:
