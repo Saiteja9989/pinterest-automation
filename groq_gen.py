@@ -430,96 +430,121 @@ def generate_blog_html(blog_title, category, products, blog_number=1):
 
     intro_hook = BLOG_INTRO_HOOKS[blog_number % len(BLOG_INTRO_HOOKS)]
 
-    prompt = f"""You are an expert affiliate blog writer for US audience. Write a complete SEO-optimized blog post.
+    prompt = f"""You are a senior affiliate content writer for a US home organization blog. Write a complete, professional, SEO-optimized blog post that ranks on Google and converts Amazon clicks.
 
 Blog Title: "{blog_title}"
-Number of products: {n}
-
-Products:
+Target keywords: {blog_title.lower()}, best {category} organizers 2026, amazon {category} organizers
+Products ({n} total):
 {product_list}
 
-Write the blog in EXACTLY this structure with EXACTLY this HTML styling:
+Audience: US homeowners aged 28-55, shopping on Amazon, value-conscious, want honest recommendations.
+Tone: Friendly expert — like a knowledgeable friend who tested everything, not a generic AI list.
+Updated: March 2026
 
----SECTION 1: DISCLOSURE BOX---
-<div style="background:#fff3cd;border-left:4px solid #ffc107;padding:15px;margin:20px 0;border-radius:4px"><strong>Disclosure:</strong> As an Amazon Associate I earn from qualifying purchases at no extra cost to you.</div>
+---SECTION 1: AFFILIATE DISCLOSURE---
+<div style="background:#fff8e1;border-left:4px solid #ffc107;padding:14px 18px;margin:24px 0;border-radius:6px;font-size:14px"><strong>Disclosure:</strong> This post contains affiliate links. As an Amazon Associate I earn from qualifying purchases at no extra cost to you. I only recommend products I've researched thoroughly.</div>
 
----SECTION 2: INTRO (2-3 paragraphs)---
-{intro_hook} Use <strong> for key phrases.
+---SECTION 2: INTRO (3 paragraphs, 150-200 words total)---
+{intro_hook}
+- Paragraph 1: {intro_hook} Use <strong> for 2-3 key phrases. Open with a relatable problem US homeowners face.
+- Paragraph 2: Brief context — why this category matters in 2026, mention "Amazon" naturally.
+- Paragraph 3: End with: "I spent hours researching thousands of Amazon reviews to bring you this ranked list — updated March 2026."
+Do NOT write generic filler. Every sentence must earn its place.
 
 ---SECTION 3: QUICK ANSWER BOX---
-<div style="background:#e8f4fd;border-left:4px solid #2196f3;padding:15px;margin:20px 0;border-radius:4px"><strong>Quick Answer:</strong> The [Product #1 name] is the best overall pick. [One sentence why — fit, price, reviews].</div>
+<div style="background:#e3f2fd;border-left:5px solid #1976d2;padding:16px 20px;margin:24px 0;border-radius:6px">
+<strong>Quick Answer (2026):</strong> The best overall pick is the <strong>[Product #1 name]</strong> — [one sharp sentence: what makes it stand out, mention price and rating]. Budget pick: <strong>[Product #2 or cheapest]</strong> at [price]. Premium pick: <strong>[most expensive product]</strong>.
+</div>
 
----SECTION 4: WHAT TO LOOK FOR (H2)---
-<h2>What to Look for Before You Buy</h2>
-3 numbered tips specific to this product category. Each with a heading and 2-3 bullet sub-points.
+---SECTION 4: BUYING GUIDE — WHAT TO LOOK FOR (H2)---
+<h2>What to Look for in a {blog_title.split("—")[0].strip()} (2026 Buyer's Guide)</h2>
+Write 4 buying criteria specific to this product type. Each as:
+<h3>[Criterion Name]</h3>
+<p>[2-3 sentences explaining why it matters and what to look for. Be specific — mention measurements, materials, or real scenarios.]</p>
 
 ---SECTION 5: COMPARISON TABLE (H2)---
-<h2>Quick Comparison — All {n} Picks</h2>
-<table style="width:100%;border-collapse:collapse;margin:20px 0">
-<tr style="background:#2196f3;color:white;text-align:left"><th style="padding:10px">Organizer</th><th style="padding:10px">Best For</th><th style="padding:10px">Price</th><th style="padding:10px">Rating</th></tr>
-[alternating rows: white and #f8f9fa, padding:10px, each product]
+<h2>All {n} Picks at a Glance</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;margin:20px 0;font-size:15px">
+<thead><tr style="background:#1976d2;color:#fff;text-align:left">
+<th style="padding:12px 14px">#</th><th style="padding:12px 14px">Product</th><th style="padding:12px 14px">Best For</th><th style="padding:12px 14px">Price</th><th style="padding:12px 14px">Rating</th>
+</tr></thead>
+<tbody>
+[For each product — alternate row background #ffffff and #f5f5f5, padding 11px 14px. Include rank number, product name, specific best-for use case, price, rating with ★ symbol]
+</tbody>
 </table>
-
----SECTION 6: NUMBERED PRODUCTS (repeat for each of the {n} products)---
-For product #1: <h2>#1 — Best Overall: [Product Name]</h2>
-For product #2: <h2>#2 — Best for [specific use]: [Product Name]</h2>
-For product #3+: <h2>#3 — [Best adjective]: [Product Name]</h2>
-(continue pattern for all {n} products)
-
-Each product block MUST follow this EXACTLY (no author name, no byline, no attribution):
-<img src="[EXACT image_url from product list]" style="float:right;width:250px;margin:0 0 15px 20px;border-radius:8px" alt="[product name]">
-<p>[2-3 sentence expert description — mention specific dimensions, materials, capacity, or unique feature]</p>
-<p><strong>Best for:</strong> [specific type of person or home situation]</p>
-<p><strong>Pros:</strong></p>
-<ul>
-<li>[Specific pro 1 — mention actual feature, e.g. "Fits standard 12-inch drawer perfectly"]</li>
-<li>[Specific pro 2 — e.g. "BPA-free clear plastic shows contents at a glance"]</li>
-<li>[Specific pro 3 — e.g. "Stackable design saves 40% more cabinet space"]</li>
-<li>[Specific pro 4 — e.g. "Built-in handles make it easy to pull out and carry"]</li>
-<li>[Specific pro 5 — e.g. "Dishwasher-safe for easy cleaning"]</li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul>
-<li>[Honest con 1 — e.g. "Lid is sold separately"]</li>
-<li>[Honest con 2 — e.g. "May be too wide for compact drawers under 10 inches"]</li>
-</ul>
-<p><strong>Price:</strong> [price] &nbsp;|&nbsp; <strong>Rating:</strong> ⭐ [rating] ([estimated],000+ reviews)</p>
-<div style="clear:both"></div>
-<div style="text-align:center;margin:20px 0">
-<a href="[EXACT affiliate_link]" style="background:#ff9900;color:white;padding:12px 25px;border-radius:5px;text-decoration:none;display:inline-block;font-weight:bold;font-size:16px">✅ Check Price on Amazon →</a>
 </div>
-<hr style="margin:30px 0;border:none;border-top:1px solid #eee">
+
+---SECTION 6: PRODUCT REVIEWS — repeat for ALL {n} products---
+Ranking labels: #1=Best Overall, #2=Best Value, #3=Best Premium, #4+=Best for [specific use case]
+
+For EACH product use this EXACT structure:
+
+<h2>#[N] — [Ranking Label]: [Product Name]</h2>
+<img src="[EXACT image_url]" style="float:right;width:240px;margin:0 0 16px 24px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.12)" alt="[product name]">
+<p>[Opening sentence with the product's #1 standout feature — be specific: mention a real measurement, material, or capacity. e.g. "This expandable bamboo organizer stretches from 13 to 21 inches to fit virtually any standard kitchen drawer."]</p>
+<p>[Second sentence: mention who it's best for and one real-world use case. Third sentence: reference real Amazon buyer feedback naturally.]</p>
+<p><strong>Best for:</strong> [Very specific person/scenario — e.g. "Renters with small kitchen drawers who need a tool-free, damage-free solution"]</p>
+<h3>Pros</h3>
+<ul>
+<li>[Pro 1 — specific feature with measurement or material: e.g. "Expands from 13\" to 21\" — fits most standard kitchen drawers"]</li>
+<li>[Pro 2 — practical benefit: e.g. "Natural bamboo resists moisture and odors better than plastic"]</li>
+<li>[Pro 3 — value/convenience: e.g. "Tool-free install — just place it in the drawer"]</li>
+<li>[Pro 4 — unique differentiator vs competitors]</li>
+<li>[Pro 5 — buyer-confirmed detail from reviews]</li>
+</ul>
+<h3>Cons</h3>
+<ul>
+<li>[Honest con — real limitation, not vague: e.g. "Bamboo can warp if left wet for extended periods"]</li>
+<li>[Second honest con — e.g. "Fixed compartments may not fit large cooking utensils over 12 inches"]</li>
+</ul>
+<div style="background:#f9f9f9;border:1px solid #e0e0e0;border-radius:6px;padding:14px 18px;margin:16px 0">
+<strong>Bottom Line:</strong> [1 punchy sentence — who should buy this and why it's worth the price. Mention the price.]
+</div>
+<p style="color:#555;font-size:15px"><strong>Price:</strong> [price] &nbsp;|&nbsp; <strong>Rating:</strong> [rating]★ &nbsp;|&nbsp; <strong>Reviews:</strong> [estimated],000+ on Amazon</p>
+<div style="clear:both"></div>
+<div style="text-align:center;margin:24px 0">
+<a href="[EXACT affiliate_link]" style="background:#ff9900;color:#fff;padding:13px 28px;border-radius:6px;text-decoration:none;display:inline-block;font-weight:700;font-size:16px;letter-spacing:0.3px">Check Price on Amazon</a>
+</div>
+<hr style="margin:32px 0;border:none;border-top:1px solid #ececec">
 
 ---SECTION 7: PRO TIPS (H2)---
-<h2>5 Pro Tips to Maximize [topic] Space</h2>
-Numbered list of 5 actionable, specific tips. Each tip name in bold with 1-2 sentence explanation.
+<h2>5 Pro Tips to Get the Most Out of Your {category.title()} Organizer</h2>
+<ol>
+[5 actionable, specific tips. Each: <li><strong>[Tip Name]:</strong> [2 sentences — practical, US-household specific, not generic]</li>]
+</ol>
 
----SECTION 8: FAQ (H2)---
+---SECTION 8: FAQ (H2) — for Google featured snippets---
 <h2>Frequently Asked Questions</h2>
-5 Q&A pairs. Q in bold, answer in plain text. Specific questions someone would actually search.
-Format: <p><strong>[Question]</strong></p><p>[Answer]</p>
+Write 5 Q&A pairs. Questions must be phrased exactly how a US buyer would type them into Google.
+Format each as:
+<h3>[Full question as someone would Google it]</h3>
+<p>[Answer: 3-4 sentences minimum. Be specific. Include measurements, price ranges, or comparisons where relevant. Google rewards detailed answers for featured snippets.]</p>
 
 ---SECTION 9: FINAL VERDICT (H2)---
-<h2>Final Verdict</h2>
-4-5 sentences. Recommend #1 for most people, then mention who should choose #2, #3 alternatives.
-End with a motivational closing line.
+<h2>Final Verdict — Which One Should You Buy?</h2>
+<p>[Paragraph 1: Recommend #1 for most people — say exactly why in 2 sentences.]</p>
+<p>[Paragraph 2: Who should pick #2 (budget) vs #3 (premium) — be specific.]</p>
+<p>[Paragraph 3: Motivating close — 1-2 sentences about how this small purchase makes a real difference in daily life.]</p>
 
----SECTION 10: SHOP ALL LINKS---
+---SECTION 10: QUICK SHOP — ALL PICKS---
 <h2>Shop All {n} Picks on Amazon</h2>
-Numbered list with <a href="[affiliate_link]">[Product name]</a> — [one word best for]
+<ol>
+[For each product: <li><a href="[EXACT affiliate_link]" style="color:#1976d2;font-weight:600">[Product Name]</a> — [3-4 word best-for label] — [price]</li>]
+</ol>
 
----SECTION 11: FINAL DISCLAIMER---
-<p style="font-size:12px;color:#666;margin-top:30px">As an Amazon Associate I earn from qualifying purchases. Prices shown are approximate and may vary. Always check Amazon for current pricing.</p>
+---SECTION 11: DISCLAIMER---
+<p style="font-size:13px;color:#888;margin-top:32px;border-top:1px solid #eee;padding-top:16px">Last updated: March 2026. As an Amazon Associate I earn from qualifying purchases. Prices are approximate and subject to change — always verify on Amazon before purchasing.</p>
 
-REQUIREMENTS:
-- US English only
-- Return ONLY HTML content (no html/head/body tags, no markdown, no explanation)
-- Use EXACT image URLs and affiliate links provided — do not make up URLs
-- Total: 2000-2500 words
-- Target keywords: {blog_title.lower()}, best {category} organizers, amazon organizers 2026
-- CRITICAL: Do NOT add any author name, byline, "by [name]", or attribution ANYWHERE in the blog
-- CRITICAL: ALL 11 SECTIONS must be present and complete — do not stop early
-- CRITICAL: Every product must have EXACTLY 4-5 pros and EXACTLY 2-3 cons — be specific, not generic"""
+HARD REQUIREMENTS:
+- US English only. Conversational but expert tone. No fluff, no filler sentences.
+- Return ONLY the HTML body content — no html/head/body tags, no markdown fences, no explanation
+- Use EXACT image_url and affiliate_link values from the product list — never invent URLs
+- Word count: 2500-3200 words
+- Use "2026" at least 4 times naturally throughout
+- CRITICAL: ALL 11 SECTIONS must be present and complete — never stop early
+- CRITICAL: Every product gets EXACTLY 5 pros and EXACTLY 2 cons — all specific, none generic
+- CRITICAL: Zero author names, bylines, or attributions anywhere"""
 
     return ask_groq(prompt, max_tokens=8192)
 
