@@ -2300,5 +2300,6 @@
       "posted": false,
       "blog_number": 12
     }
-  ]
+  ],
+  "posting_enabled": true
 }
