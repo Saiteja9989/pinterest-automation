@@ -607,11 +607,31 @@ def generate_pin_content(blog_title, category, blog_url, products, blog_number=1
     trending = get_trending_keywords(blog_title, category)
     trending_str = ", ".join(f'"{kw}"' for kw in trending) if trending else f'"best {category} organizer 2026"'
 
-    # Get category-ordered styles, then ROTATE by blog_number so each blog
-    # gets a different starting style — prevents all blog pin-1 being STOP HOOK, etc.
-    order = STYLE_ORDERS.get(category, STYLE_ORDERS['general'])
-    shift = (blog_number - 1) % len(order)
-    order = order[shift:] + order[:shift]
+    # Pick style order based on blog title keywords first, then fall back to category order
+    title_lower = blog_title.lower()
+    if any(k in title_lower for k in ['stop buying', 'stop wasting', 'mistakes', 'wrong', 'bad']):
+        # Problem/urgency blogs → lead with STOP HOOK, PROBLEM, AUTHORITY
+        order = [2, 8, 7, 1, 6, 4, 0, 3, 9, 5]
+    elif any(k in title_lower for k in ['best ', 'ranked', 'tested', 'only these', 'worth it']):
+        # Review/ranking blogs → lead with AUTHORITY, COMPARISON, SOCIAL PROOF
+        order = [7, 1, 9, 2, 6, 3, 4, 0, 8, 5]
+    elif any(k in title_lower for k in ['i organized', 'i tested', 'makeover', 'transform', 'before']):
+        # Story/transformation blogs → lead with BEFORE/AFTER, LIFESTYLE, SOCIAL PROOF
+        order = [4, 0, 9, 3, 1, 8, 6, 7, 2, 5]
+    elif any(k in title_lower for k in ['hack', 'tip', 'how to', 'how i', 'way', 'secret']):
+        # Tips/how-to blogs → lead with TIPS LIST, PROBLEM, BEFORE/AFTER
+        order = [3, 8, 4, 2, 1, 0, 9, 6, 7, 5]
+    elif any(k in title_lower for k in ['under $', 'budget', 'cheap', 'affordable', 'for under']):
+        # Budget blogs → lead with BUDGET PRICE, COMPARISON, AUTHORITY
+        order = [6, 1, 7, 2, 9, 3, 8, 0, 4, 5]
+    elif any(k in title_lower for k in ['why your', 'why you', "you're", 'reason']):
+        # Problem-awareness blogs → lead with PROBLEM, STOP, COMPARISON
+        order = [8, 2, 1, 7, 4, 3, 9, 0, 6, 5]
+    else:
+        # Default: category order with blog_number rotation
+        order = STYLE_ORDERS.get(category, STYLE_ORDERS['general'])
+        shift = (blog_number - 1) % len(order)
+        order = order[shift:] + order[:shift]
 
     all_styles = get_style_definitions(room, category, n_products, n1, n2, n3, pr1, pr2, pr3, r1, r2, r3)
     # room_visual already baked into style templates via get_room_visual() call inside get_style_definitions
