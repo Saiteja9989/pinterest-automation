@@ -26,27 +26,12 @@ def save_queue(queue):
 
 def post_to_pinterest(pin):
     """Send pin data to Make.com webhook"""
-    # Clean description — strip hashtags into separate field for Pinterest
-    full_desc = pin.get("description", "")
-    if "\n\n#" in full_desc:
-        desc_text, hashtag_block = full_desc.split("\n\n#", 1)
-        hashtags = "#" + hashtag_block.strip()
-    else:
-        desc_text = full_desc
-        hashtags = ""
-
-    # Pinterest alt_text = template name + topic (helps image SEO)
-    alt_text = f"{pin.get('style', '')} — {pin.get('title', '')[:80]}"
-
     payload = {
         "title":       pin["title"],
-        "description": desc_text.strip(),
-        "hashtags":    hashtags,
+        "description": pin["description"],
         "image_url":   pin["image_url"],
         "link":        pin["link"],
         "board_id":    pin["board_id"],
-        "alt_text":    alt_text,
-        "template":    pin.get("template_code", ""),
     }
     res = requests.post(MAKE_WEBHOOK_URL, json=payload, timeout=30)
     if res.status_code != 200:
@@ -63,20 +48,32 @@ def post_to_pinterest(pin):
     return False
 
 
+def image_url_valid(url):
+    """Return True if the image URL is reachable (HTTP 200)."""
+    if not url or not url.startswith("http"):
+        return False
+    try:
+        r = requests.head(url, timeout=10, allow_redirects=True)
+        return r.status_code == 200
+    except Exception:
+        return False
+
+
 def pick_next_pin(pins):
     """Round-robin selection across blogs.
 
     Picks the unposted pin with the smallest pin_number,
     breaking ties by smallest blog_number.
-
-    Order: Blog1-P1 → Blog2-P1 → ... → Blog10-P1 → Blog1-P2 → Blog2-P2 → ...
-    With 20 daily triggers and 10 blogs: 2 pins/day per blog.
+    Skips pins whose image URL is empty or returns non-200.
     """
     best_idx = None
     best_pin = None
 
     for i, pin in enumerate(pins):
-        if pin.get("posted", False) or not pin.get("image_url", ""):
+        if pin.get("posted", False):
+            continue
+        url = pin.get("image_url", "")
+        if not url or not url.startswith("http"):
             continue
         if best_pin is None:
             best_idx, best_pin = i, pin
@@ -111,8 +108,16 @@ def run():
 
     print(f"\nPosting pin #{next_pin.get('pin_number')} from Blog #{next_pin.get('blog_number')}: {next_pin['title'][:60]}...")
     print(f"Style: {next_pin.get('style', 'N/A')}")
-    print(f"Board: {next_pin['board_id']}")
-    print(f"Link:  {next_pin['link']}")
+    print(f"Image: {next_pin['image_url']}")
+
+    # Validate image URL before hitting Make.com
+    if not image_url_valid(next_pin["image_url"]):
+        print(f"❌ Image URL returned 404 or unreachable — skipping this pin.")
+        pins[next_index]["posted"] = True  # mark to skip so it doesn't retry forever
+        pins[next_index]["skip_reason"] = "image_404"
+        queue["pins"] = pins
+        save_queue(queue)
+        return
 
     success = post_to_pinterest(next_pin)
 
