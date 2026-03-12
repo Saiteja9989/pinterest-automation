@@ -65,6 +65,7 @@ jobs:
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git add pins_queue.json
           git diff --staged --quiet || git commit -m "Mark pin as posted [skip ci]"
           git push
