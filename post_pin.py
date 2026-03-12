@@ -42,10 +42,10 @@ def post_to_pinterest(pin):
     # To detect Pinterest failures, configure Make.com to use a synchronous
     # Webhook Response module that returns {"status": "ok"} on success.
     body = res.json() if res.text else {}
-    if isinstance(body, dict) and body.get("status") == "error":
-        print(f"Make.com returned error: {body}")
-        return False
-    return True
+    if isinstance(body, dict) and body.get("status") == "ok":
+        return True
+    print(f"Make.com did not confirm success: {body}")
+    return False
 
 
 def pick_next_pin(pins):
