@@ -26,12 +26,27 @@ def save_queue(queue):
 
 def post_to_pinterest(pin):
     """Send pin data to Make.com webhook"""
+    # Clean description — strip hashtags into separate field for Pinterest
+    full_desc = pin.get("description", "")
+    if "\n\n#" in full_desc:
+        desc_text, hashtag_block = full_desc.split("\n\n#", 1)
+        hashtags = "#" + hashtag_block.strip()
+    else:
+        desc_text = full_desc
+        hashtags = ""
+
+    # Pinterest alt_text = template name + topic (helps image SEO)
+    alt_text = f"{pin.get('style', '')} — {pin.get('title', '')[:80]}"
+
     payload = {
         "title":       pin["title"],
-        "description": pin["description"],
+        "description": desc_text.strip(),
+        "hashtags":    hashtags,
         "image_url":   pin["image_url"],
         "link":        pin["link"],
         "board_id":    pin["board_id"],
+        "alt_text":    alt_text,
+        "template":    pin.get("template_code", ""),
     }
     res = requests.post(MAKE_WEBHOOK_URL, json=payload, timeout=30)
     if res.status_code != 200:
