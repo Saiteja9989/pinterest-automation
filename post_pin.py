@@ -26,21 +26,11 @@ def save_queue(queue):
 
 def post_to_pinterest(pin):
     """Send pin data to Make.com webhook"""
-    # Split description and hashtags — Make.com Pinterest module uses them separately
-    full_desc = pin.get("description", "")
-    if "\n\n#" in full_desc:
-        desc_text, hashtag_block = full_desc.split("\n\n#", 1)
-        hashtags = "#" + hashtag_block.strip()
-    else:
-        desc_text = full_desc
-        hashtags = ""
-
     alt_text = f"{pin.get('style', '')} — {pin.get('title', '')[:80]}"
 
     payload = {
         "title":       pin["title"],
-        "description": desc_text.strip(),
-        "hashtags":    hashtags,
+        "description": pin["description"],   # full description + hashtags combined
         "image_url":   pin["image_url"],
         "link":        pin["link"],
         "board_id":    pin["board_id"],
