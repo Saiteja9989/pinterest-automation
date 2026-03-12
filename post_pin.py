@@ -48,16 +48,6 @@ def post_to_pinterest(pin):
     return False
 
 
-def image_url_valid(url):
-    """Return True if the image URL is reachable (HTTP 200)."""
-    if not url or not url.startswith("http"):
-        return False
-    try:
-        r = requests.head(url, timeout=10, allow_redirects=True)
-        return r.status_code == 200
-    except Exception:
-        return False
-
 
 def pick_next_pin(pins):
     """Round-robin selection across blogs.
@@ -109,15 +99,6 @@ def run():
     print(f"\nPosting pin #{next_pin.get('pin_number')} from Blog #{next_pin.get('blog_number')}: {next_pin['title'][:60]}...")
     print(f"Style: {next_pin.get('style', 'N/A')}")
     print(f"Image: {next_pin['image_url']}")
-
-    # Validate image URL before hitting Make.com
-    if not image_url_valid(next_pin["image_url"]):
-        print(f"❌ Image URL returned 404 or unreachable — skipping this pin.")
-        pins[next_index]["posted"] = True  # mark to skip so it doesn't retry forever
-        pins[next_index]["skip_reason"] = "image_404"
-        queue["pins"] = pins
-        save_queue(queue)
-        return
 
     success = post_to_pinterest(next_pin)
 
