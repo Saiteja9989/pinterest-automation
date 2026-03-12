@@ -573,33 +573,29 @@ def _fill_freepik_template(template, image_headline, tips=None):
     return result
 
 
-def generate_pin_content(blog_title, category, blog_url, products, blog_number=1):
-    """Generate 10 SEO-optimized pins.
+def generate_pin_content(blog_title, category, blog_url, products, blog_number=1, blog_html=None):
+    """Generate 10 SEO-optimized Pinterest pins by analyzing the actual blog content.
 
-    Two-step approach:
-    1. Groq writes: title, image_headline, description, hashtags, tips
-    2. Python builds freepik_prompt from the style template + image_headline
-       This guarantees title ↔ image ↔ description are always cohesive.
+    Groq analyzes the blog post, selects the 10 best-fitting templates from the
+    template library, and generates title + description + Freepik image prompt
+    (with text overlay included) for each pin.
     """
+    import re as _re
     board_id = BOARDS.get(category, BOARDS['general'])
 
     p1 = products[0] if len(products) > 0 else {}
     p2 = products[1] if len(products) > 1 else {}
     p3 = products[2] if len(products) > 2 else {}
-    n1 = p1.get('name', 'organizer')[:35]
-    n2 = p2.get('name', 'organizer')[:35]
-    n3 = p3.get('name', 'organizer')[:35]
+    n1 = p1.get('name', 'organizer')[:40]
+    n2 = p2.get('name', 'organizer')[:40]
+    n3 = p3.get('name', 'organizer')[:40]
     pr1 = p1.get('price', '$15')
     pr2 = p2.get('price', '$20')
     pr3 = p3.get('price', '$25')
-    r1  = p1.get('rating', '4.5')
-    r2  = p2.get('rating', '4.3')
-    r3  = p3.get('rating', '4.4')
     n_products = len(products)
 
-    # Extract the specific sub-topic from the blog title (e.g. "refrigerator", "spice cabinet")
-    # This is used as the room phrase in ALL Freepik image templates and title rules
     room = extract_topic(blog_title, category)
+    room_visual = get_room_visual(room)
     print(f"  Topic detected: '{room}' (from blog title)")
 
     # Fetch trending keywords
@@ -607,87 +603,83 @@ def generate_pin_content(blog_title, category, blog_url, products, blog_number=1
     trending = get_trending_keywords(blog_title, category)
     trending_str = ", ".join(f'"{kw}"' for kw in trending) if trending else f'"best {category} organizer 2026"'
 
-    # Pick style order based on blog title keywords first, then fall back to category order
-    title_lower = blog_title.lower()
-    if any(k in title_lower for k in ['stop buying', 'stop wasting', 'mistakes', 'wrong', 'bad']):
-        # Problem/urgency blogs → lead with STOP HOOK, PROBLEM, AUTHORITY
-        order = [2, 8, 7, 1, 6, 4, 0, 3, 9, 5]
-    elif any(k in title_lower for k in ['best ', 'ranked', 'tested', 'only these', 'worth it']):
-        # Review/ranking blogs → lead with AUTHORITY, COMPARISON, SOCIAL PROOF
-        order = [7, 1, 9, 2, 6, 3, 4, 0, 8, 5]
-    elif any(k in title_lower for k in ['i organized', 'i tested', 'makeover', 'transform', 'before']):
-        # Story/transformation blogs → lead with BEFORE/AFTER, LIFESTYLE, SOCIAL PROOF
-        order = [4, 0, 9, 3, 1, 8, 6, 7, 2, 5]
-    elif any(k in title_lower for k in ['hack', 'tip', 'how to', 'how i', 'way', 'secret']):
-        # Tips/how-to blogs → lead with TIPS LIST, PROBLEM, BEFORE/AFTER
-        order = [3, 8, 4, 2, 1, 0, 9, 6, 7, 5]
-    elif any(k in title_lower for k in ['under $', 'budget', 'cheap', 'affordable', 'for under']):
-        # Budget blogs → lead with BUDGET PRICE, COMPARISON, AUTHORITY
-        order = [6, 1, 7, 2, 9, 3, 8, 0, 4, 5]
-    elif any(k in title_lower for k in ['why your', 'why you', "you're", 'reason']):
-        # Problem-awareness blogs → lead with PROBLEM, STOP, COMPARISON
-        order = [8, 2, 1, 7, 4, 3, 9, 0, 6, 5]
-    else:
-        # Default: category order with blog_number rotation
-        order = STYLE_ORDERS.get(category, STYLE_ORDERS['general'])
-        shift = (blog_number - 1) % len(order)
-        order = order[shift:] + order[:shift]
+    # Strip blog HTML to plain text summary (max 2500 chars to save tokens)
+    blog_summary = ""
+    if blog_html:
+        blog_summary = _re.sub(r'<[^>]+>', ' ', blog_html)
+        blog_summary = _re.sub(r'\s+', ' ', blog_summary).strip()[:2500]
 
-    all_styles = get_style_definitions(room, category, n_products, n1, n2, n3, pr1, pr2, pr3, r1, r2, r3)
-    # room_visual already baked into style templates via get_room_visual() call inside get_style_definitions
-    ordered_styles = [all_styles[i] for i in order]
+    prompt = f"""You are a Pinterest content strategist for US home organization niche. 2026.
 
-    # Build per-pin title rules only (NO freepik in Groq prompt)
-    pin_rules = ""
-    for slot, style in enumerate(ordered_styles, 1):
-        extra_note = ' Also provide "tips": ["tip 1", "tip 2", "tip 3"] (3 specific actionable tips for this category).' if style["name"] == "TIPS LIST" else ' Set "tips": [].'
-        pin_rules += f"\nPIN {slot} — {style['name']}: {style['title_rule']}.{extra_note}\n"
+BLOG TITLE: "{blog_title}"
+TOPIC: "{room}" | CATEGORY: {category}
+PRODUCTS ({n_products} total): {n1} ({pr1}), {n2} ({pr2}), {n3} ({pr3})
+TRENDING: {trending_str}
+BLOG URL: {blog_url}
 
-    prompt = f"""You are a Pinterest SEO expert targeting US home organization shoppers in 2026.
-Blog: "{blog_title}"
-Category: {category}
-SPECIFIC TOPIC: "{room}" — EVERY pin title and image_headline MUST mention "{room}", NOT just generic "{category}".
-Top 3 products: {n1} ({pr1}, {r1}★), {n2} ({pr2}, {r2}★), {n3} ({pr3}, {r3}★)
-Total products: {n_products}
-Website: smarthomeorganizing.com
+BLOG CONTENT SUMMARY:
+{blog_summary}
 
-Trending searches RIGHT NOW:
-{trending_str}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TEMPLATE LIBRARY — pick 10 that BEST fit this blog:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+A1: Before & After Split — use if blog has transformation or comparison
+A2: Reveal/Final Result — use if blog shows an organized space
+B1: Numbered List — use if blog has ranked products list
+B2: Product Roundup Grid — use if blog reviews multiple products
+C1: Step-by-Step Tutorial — use if blog has steps/process
+C4: Comparison (This vs That) — use if blog compares options
+C6: Mistakes to Avoid — use if blog warns against bad choices
+D1: Question Pin ("Do you struggle with...?") — always works for engagement
+E1: Tip/Hack Highlight — use if blog has tips section
+E3: Relatable Problem Statement — use if blog opens with a problem
+F1: Checklist — use if blog has a checklist or buying guide
+G1: CTA Blog Pin — ALWAYS include at least one (drives traffic)
+G2: Curiosity Gap — use if blog has a surprising finding
+H3: Year-specific ("2026 Best...") — always works for SEO
+I1: Testimonial/Review Style — use if blog cites reviews/ratings
+J1: Mini Story (Problem→Solution) — use if blog has narrative intro
 
-Generate exactly 10 Pinterest pins. Each has 5 fields:
+RULES FOR SELECTION:
+- Pick EXACTLY 10 templates
+- Vary categories (no more than 2 from same category)
+- ALWAYS include G1 (CTA) and D1 (Question) — mandatory
+- Pick based on what ACTUALLY exists in this blog
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FOR EACH PIN, generate these 4 fields:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 1. "title" — max 100 chars. RULES:
-   - MUST include "2026" OR a price like "{pr1}" OR "Amazon" in at least 6 of the 10 pins
+   - Include "2026" OR price like "{pr1}" OR "Amazon" in ≥6 of 10 pins
    - MUST reference "{room}" specifically
-   - Use US buyer language: "Best", "Top", "Under $X", "Worth It", "Actually Work", "Ranked"
-   - NO two pins share the same opening word
-   - Follow the pin's specific TITLE RULE below
+   - US buyer language: "Best", "Top", "Tested", "Ranked", "Worth It"
+   - No two pins share the same opening word
 
-2. "image_headline" — 4-6 words ALL CAPS. MUST contain "{room.upper().split()[0]}" or synonym.
-
-3. "description" — max 500 chars:
-   - OPEN with a question US buyers ask: "Tired of...", "Still wasting money on...", "Looking for the best..."
-   - Include the price of the top product ({pr1}) naturally
-   - Mention "Amazon" at least once
-   - 2-3 sentences max
+2. "description" — max 500 chars:
+   - Open with a question: "Tired of...", "Still wasting money on...", "Looking for..."
+   - Mention "Amazon" once, include price {pr1} naturally
    - End with "→ Full list + Amazon links in bio!"
 
-4. "hashtags" — 12 hashtags as one string. MUST include:
-   #HomeOrganization2026 #AmazonHome #AmazonFinds #OrganizationIdeas #HomeOrganization
-   Plus 7 niche tags specific to "{room}" and {category}
+3. "hashtags" — 12 hashtags as one string. ALWAYS include:
+   #HomeOrganization2026 #AmazonHome #AmazonFinds #HomeOrganization #OrganizationIdeas
+   + 7 niche tags specific to "{room}"
 
-5. "tips" — array of 3 short actionable tips (only for TIPS LIST style, else [])
+4. "freepik_prompt" — Flux 2 Pro image generation prompt. Format:
+   "Pinterest pin 1000x1440px portrait, [SCENE: specific {room_visual} description matching the template type], [LIGHTING: bright natural light / warm moody / clean white studio], text overlay: '[LINE1: 3-5 word bold headline in ALL CAPS]' in bold white sans-serif on dark semi-transparent banner, '[LINE2: 4-6 word supporting text]' in smaller white text below, [COLOR PALETTE: warm neutrals / cool blues / sage green], photorealistic lifestyle photography, 8K sharp, no watermarks, no people"
 
-TITLE RULES — follow exactly:
-{pin_rules}
+   CRITICAL for freepik_prompt:
+   - LINE1 must be the pin's main hook in ALL CAPS (e.g. "STOP BUYING BAD ORGANIZERS")
+   - LINE2 must be a supporting phrase (e.g. "We Tested 7 on Amazon")
+   - Scene must match the template: Before/After gets split layout, Checklist gets clean flat lay, etc.
+   - Always end with: "no watermarks, no people, Pinterest 2:3 ratio"
 
-COHESION: title → image_headline → description must tell ONE unified story about "{room}".
-BAD: title "Stop Wasting Kitchen Space" → image_headline "DREAM KITCHEN ORGANIZATION" (too generic)
-GOOD: title "Best {room} Organizers 2026 (Tested on Amazon)" → image_headline "BEST {room.upper().split()[0]} ORGANIZERS" → description "Tired of {room}s that waste space? We tested {n_products} top-rated Amazon picks..."
+Return ONLY a valid JSON array of exactly 10 objects with fields:
+pin_number, template_code, template_name, title, description, hashtags, freepik_prompt
 
-Return ONLY a valid JSON array of 10 objects. No markdown, no explanation."""
+No markdown, no explanation."""
 
-    raw = ask_groq(prompt)
+    raw = ask_groq(prompt, max_tokens=8192)
 
     # Extract JSON
     try:
@@ -700,21 +692,15 @@ Return ONLY a valid JSON array of 10 objects. No markdown, no explanation."""
     # Get Pinterest topic tags for this category
     topic_tags = TOPIC_TAGS.get(category, TOPIC_TAGS["general"])
 
-    # Build pins: Python constructs freepik_prompt from template + Groq's image_headline
     pins = []
     for i, pin in enumerate(pins_data):
-        style = ordered_styles[i] if i < len(ordered_styles) else {"name": "", "freepik": ""}
-        image_headline = pin.get("image_headline", "").upper().strip()
-        tips = pin.get("tips", [])
-        freepik_prompt = _fill_freepik_template(style["freepik"], image_headline, tips)
-
         pins.append({
             "pin_number":     i + 1,
-            "style":          style["name"],
+            "style":          pin.get("template_name", ""),
+            "template_code":  pin.get("template_code", ""),
             "title":          pin.get("title", ""),
-            "image_headline": image_headline,
-            "description":    pin.get("description", "") + f"\n\n{pin.get('hashtags', '')}",
-            "freepik_prompt": freepik_prompt,
+            "description":    pin.get("description", "").rstrip() + f"\n\n{pin.get('hashtags', '')}",
+            "freepik_prompt": pin.get("freepik_prompt", ""),
             "link":           blog_url,
             "board_id":       board_id,
             "topic_tags":     topic_tags,

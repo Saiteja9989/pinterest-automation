@@ -105,7 +105,7 @@ def run():
 
     # Step 3: Generate 10 pin titles, descriptions, prompts
     print("\n[3/4] Generating 10 pin contents with Groq...")
-    pins = generate_pin_content(blog_title, category, blog_url, products, blog_number)
+    pins = generate_pin_content(blog_title, category, blog_url, products, blog_number, blog_html=html)
     print(f"Generated {len(pins)} pin contents")
 
     # Step 4: Generate + download 10 pin images (saved to images/ folder)
