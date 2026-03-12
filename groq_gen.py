@@ -14,22 +14,7 @@ from config import GROQ_API_KEY, GROQ_MODEL, BOARDS, TOPIC_TAGS
 
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
-# ─── Category-based style rotation ────────────────────────────────────────────
-# Indices 0-9 map to style definitions (0=lifestyle,1=comparison,2=stop,
-# 3=tips,4=before/after,5=dark moody,6=budget,7=authority,8=problem,9=social)
-STYLE_ORDERS = {
-    'kitchen':  [2, 1, 4, 6, 0, 7, 8, 3, 9, 5],  # STOP hook leads (urgency)
-    'bathroom': [0, 3, 1, 9, 4, 6, 5, 2, 7, 8],  # Lifestyle leads (aspirational)
-    'bedroom':  [0, 5, 4, 9, 1, 3, 6, 7, 8, 2],  # Lifestyle + dark moody
-    'spring':   [4, 3, 0, 8, 2, 9, 1, 6, 5, 7],  # Before/after leads (transformation)
-    'office':   [3, 1, 6, 7, 8, 2, 0, 5, 9, 4],  # Tips leads (productivity)
-    'living':   [0, 1, 4, 9, 5, 8, 3, 6, 7, 2],  # Lifestyle leads
-    'kids':     [9, 3, 8, 1, 4, 0, 6, 7, 2, 5],  # Social proof leads
-    'laundry':  [4, 0, 3, 8, 1, 6, 9, 5, 2, 7],  # Before/after leads
-    'garage':   [7, 2, 1, 8, 6, 3, 4, 0, 5, 9],  # Authority leads
-    'budget':   [6, 2, 9, 8, 1, 3, 4, 0, 5, 7],  # Budget price leads
-    'general':  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-}
+WEBSITE = "smarthomeorganizing.com"
 
 # ─── Map blog title keywords → specific room phrase for Freepik prompts ───────
 TOPIC_ROOM = {
@@ -149,8 +134,8 @@ def get_room_visual(room):
     return ROOM_VISUAL.get(room, f'beautifully organized {room} with labeled clear containers and neat storage bins')
 
 
-def get_style_definitions(room, category, n_products, n1, n2, n3, pr1, pr2, pr3, r1, r2, r3):
-    """Return 10 style dicts indexed 0-9, each with name, title_rule, freepik template."""
+def _get_style_definitions_UNUSED(room, category, n_products, n1, n2, n3, pr1, pr2, pr3, r1, r2, r3):
+    """UNUSED — kept for reference only."""
     cat_t = category.title()
     room_t = room.title()
     cat_u = category.upper()
@@ -387,7 +372,7 @@ def get_trending_keywords(topic, category):
     return suggestions[:10]
 
 
-def ask_groq(prompt, max_tokens=4096):
+def ask_groq(prompt, max_tokens=4096, json_mode=False):
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
         "Content-Type": "application/json"
@@ -398,6 +383,8 @@ def ask_groq(prompt, max_tokens=4096):
         "temperature": 0.7,
         "max_tokens": max_tokens
     }
+    if json_mode:
+        body["response_format"] = {"type": "json_object"}
     res = requests.post(GROQ_URL, headers=headers, json=body)
     data = res.json()
     if "choices" not in data:
@@ -549,49 +536,15 @@ HARD REQUIREMENTS:
     return ask_groq(prompt, max_tokens=8192)
 
 
-def _fill_freepik_template(template, image_headline, tips=None):
-    """Inject the actual image_headline into a freepik template.
-    Replaces all [N-WORD HEADLINE/WHATEVER] patterns with image_headline.
-    Replaces [SPECIFIC TIP] with provided tips (Tips List style).
-    This is done in Python — NOT by Groq — so title and image always match.
-    """
-    import re
-    result = template
-    # Replace [X-WORD HEADLINE], [X-WORD ASPIRATIONAL HEADLINE], etc.
-    result = re.sub(r'\[\d+-WORD [A-Z /]+\]', image_headline, result)
-    result = result.replace('[HEADLINE]', image_headline)
-    # Replace [5-WORD WARNING HEADLINE], [5-WORD DEAL HEADLINE], etc.
-    result = re.sub(r'\[\d+-WORD [A-Z ]+HEADLINE\]', image_headline, result)
-    # Replace problem/statement style placeholders
-    result = re.sub(r'\[\d+-WORD [A-Z ]+STATEMENT\]', image_headline, result)
-    # Replace tips (only Tips List style has these)
-    if tips:
-        for tip in tips:
-            result = result.replace('[SPECIFIC TIP]', tip, 1)
-    # Fallback: replace any remaining [ALL CAPS BRACKET] with image_headline
-    result = re.sub(r'\[[A-Z][A-Z /\-]*\]', image_headline, result)
-    return result
 
 
 def generate_pin_content(blog_title, category, blog_url, products, blog_number=1, blog_html=None):
-    """Generate 10 SEO-optimized Pinterest pins by analyzing the actual blog content.
-
-    Groq analyzes the blog post, selects the 10 best-fitting templates from the
-    template library, and generates title + description + Freepik image prompt
-    (with text overlay included) for each pin.
+    """Generate 10 Pinterest pins by having Groq analyze the blog and invent
+    the best-suited pin concepts for that specific blog. No fixed template list.
+    Each pin gets: title, description, text_on_pin, and a detailed Flux image prompt.
     """
     import re as _re
     board_id = BOARDS.get(category, BOARDS['general'])
-
-    p1 = products[0] if len(products) > 0 else {}
-    p2 = products[1] if len(products) > 1 else {}
-    p3 = products[2] if len(products) > 2 else {}
-    n1 = p1.get('name', 'organizer')[:40]
-    n2 = p2.get('name', 'organizer')[:40]
-    n3 = p3.get('name', 'organizer')[:40]
-    pr1 = p1.get('price', '$15')
-    pr2 = p2.get('price', '$20')
-    pr3 = p3.get('price', '$25')
     n_products = len(products)
 
     room = extract_topic(blog_title, category)
@@ -603,104 +556,144 @@ def generate_pin_content(blog_title, category, blog_url, products, blog_number=1
     trending = get_trending_keywords(blog_title, category)
     trending_str = ", ".join(f'"{kw}"' for kw in trending) if trending else f'"best {category} organizer 2026"'
 
-    # Strip blog HTML to plain text summary (max 2500 chars to save tokens)
-    blog_summary = ""
+    # Strip blog HTML to plain text (max 3000 chars)
+    blog_text = ""
     if blog_html:
-        blog_summary = _re.sub(r'<[^>]+>', ' ', blog_html)
-        blog_summary = _re.sub(r'\s+', ' ', blog_summary).strip()[:2500]
+        blog_text = _re.sub(r'<[^>]+>', ' ', blog_html)
+        blog_text = _re.sub(r'\s+', ' ', blog_text).strip()[:3000]
 
-    prompt = f"""You are a Pinterest content strategist for US home organization niche. 2026.
+    # Build product details with all fields Groq needs for specificity
+    product_details = "\n".join([
+        f"  P{i+1}: \"{p.get('name','')[:60]}\" | {p.get('price','?')} | {p.get('rating','?')}★"
+        for i, p in enumerate(products)
+    ])
 
+    prompt = f"""You are a Pinterest marketing expert and Flux Pro 2 image prompt engineer.
+Niche: Smart Home Organization. Website: {WEBSITE}
+
+━━━ READ THIS BLOG ━━━
 BLOG TITLE: "{blog_title}"
-TOPIC: "{room}" | CATEGORY: {category}
-PRODUCTS ({n_products} total): {n1} ({pr1}), {n2} ({pr2}), {n3} ({pr3})
-TRENDING: {trending_str}
 BLOG URL: {blog_url}
+SPACE: "{room}" | CATEGORY: {category}
+TRENDING: {trending_str}
 
-BLOG CONTENT SUMMARY:
-{blog_summary}
+PRODUCTS ({n_products} total):
+{product_details}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-TEMPLATE LIBRARY — pick 10 that BEST fit this blog:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-A1: Before & After Split — use if blog has transformation or comparison
-A2: Reveal/Final Result — use if blog shows an organized space
-B1: Numbered List — use if blog has ranked products list
-B2: Product Roundup Grid — use if blog reviews multiple products
-C1: Step-by-Step Tutorial — use if blog has steps/process
-C4: Comparison (This vs That) — use if blog compares options
-C6: Mistakes to Avoid — use if blog warns against bad choices
-D1: Question Pin ("Do you struggle with...?") — always works for engagement
-E1: Tip/Hack Highlight — use if blog has tips section
-E3: Relatable Problem Statement — use if blog opens with a problem
-F1: Checklist — use if blog has a checklist or buying guide
-G1: CTA Blog Pin — ALWAYS include at least one (drives traffic)
-G2: Curiosity Gap — use if blog has a surprising finding
-H3: Year-specific ("2026 Best...") — always works for SEO
-I1: Testimonial/Review Style — use if blog cites reviews/ratings
-J1: Mini Story (Problem→Solution) — use if blog has narrative intro
+BLOG CONTENT:
+{blog_text}
 
-RULES FOR SELECTION:
-- Pick EXACTLY 10 templates
-- Vary categories (no more than 2 from same category)
-- ALWAYS include G1 (CTA) and D1 (Question) — mandatory
-- Pick based on what ACTUALLY exists in this blog
+BASE VISUAL SCENE (use as foundation for all image prompts):
+"{room_visual}"
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FOR EACH PIN, generate these 4 fields:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━ STEP 1: ANALYZE WHAT THIS BLOG CONTAINS ━━━
+Check only what is ACTUALLY in this blog:
+- step-by-step process / tutorial
+- before & after / transformation
+- product ranking / comparison
+- specific product spotlight
+- budget / price reveal
+- pro tips / hacks
+- common mistakes / what to avoid
+- time-saving benefit
+- review count / social proof
+- zone method / organizational system
 
-1. "title" — max 100 chars. RULES:
-   - Include "2026" OR price like "{pr1}" OR "Amazon" in ≥6 of 10 pins
-   - MUST reference "{room}" specifically
-   - US buyer language: "Best", "Top", "Tested", "Ranked", "Worth It"
-   - No two pins share the same opening word
+━━━ STEP 2: INVENT 10 PIN CONCEPTS BASED ON WHAT YOU FOUND ━━━
+Rules:
+- Each pin must come from REAL content in this blog — if the blog has no before/after, don't make one
+- Every pin feels like it belongs ONLY to this blog
+- Mix emotional angles: urgency / social proof / aspiration / education / curiosity / ranking / price shock / personal story / question / tip
+- No two pins share the same opening word in the title
+- AT LEAST 5 pins name a real product from the list above
+- AT LEAST 5 pins include an actual price from the list
+- AT LEAST 3 pins include a real star rating
+- BANNED words: "great", "amazing", "awesome", "perfect"
 
-2. "description" — max 500 chars:
-   - Open with a question: "Tired of...", "Still wasting money on...", "Looking for..."
-   - Mention "Amazon" once, include price {pr1} naturally
-   - End with "→ Full list + Amazon links in bio!"
+━━━ STEP 3: FOR EACH PIN WRITE ALL 5 FIELDS ━━━
 
-3. "hashtags" — 12 hashtags as one string. ALWAYS include:
-   #HomeOrganization2026 #AmazonHome #AmazonFinds #HomeOrganization #OrganizationIdeas
-   + 7 niche tags specific to "{room}"
+"pin_number": 1-10
 
-4. "freepik_prompt" — Flux 2 Pro image generation prompt. Format:
-   "Pinterest pin 1000x1440px portrait, [SCENE: specific {room_visual} description matching the template type], [LIGHTING: bright natural light / warm moody / clean white studio], text overlay: '[LINE1: 3-5 word bold headline in ALL CAPS]' in bold white sans-serif on dark semi-transparent banner, '[LINE2: 4-6 word supporting text]' in smaller white text below, [COLOR PALETTE: warm neutrals / cool blues / sage green], photorealistic lifestyle photography, 8K sharp, no watermarks, no people"
+"pin_idea": What this pin is about — one line
 
-   CRITICAL for freepik_prompt:
-   - LINE1 must be the pin's main hook in ALL CAPS (e.g. "STOP BUYING BAD ORGANIZERS")
-   - LINE2 must be a supporting phrase (e.g. "We Tested 7 on Amazon")
-   - Scene must match the template: Before/After gets split layout, Checklist gets clean flat lay, etc.
-   - Always end with: "no watermarks, no people, Pinterest 2:3 ratio"
+"why_this_pin": Why this concept fits THIS specific blog — one line
 
-Return ONLY a valid JSON array of exactly 10 objects with fields:
-pin_number, template_code, template_name, title, description, hashtags, freepik_prompt
+"pinterest_title": SEO title, max 100 chars. Must make someone stop scrolling and click.
+  Must reference "{room}" or a direct synonym. Include price OR "Amazon" OR "2026" in ≥6 titles.
 
-No markdown, no explanation."""
+"pinterest_description": 2-3 sentences + 5 hashtags at the end.
+  Sentence 1: Expand the title's hook — same product, same price, same angle.
+  Sentence 2: Supporting detail (review count / comparison / pro tip from the blog).
+  Sentence 3: "Tap to see all {n_products} picks with Amazon links."
+  End with: #HomeOrganization2026 #AmazonHome + 3 more niche hashtags.
 
-    raw = ask_groq(prompt, max_tokens=8192)
+"text_on_pin": Exact words rendered ON the image by Flux.
+  Max 3 lines. Max 4-5 words per line. ALL CAPS. Simple common English. Must match the title's hook.
+  {{"line1": "MAIN HOOK", "line2": "SUPPORTING TEXT", "line3": "", "website": "{WEBSITE}"}}
 
-    # Extract JSON
+"flux_prompt": Complete Flux Pro 2 image generation prompt. Must produce a FULL Pinterest pin with text rendered on it.
+  Write it in this exact structure:
+
+  PART 1 FORMAT: "A professional Pinterest pin image, vertical format, 2:3 aspect ratio, 1000x1440 pixels."
+  PART 2 LAYOUT: Describe where the photo is and where the text area is (e.g. "full bleed photo top 65%, dark gradient text banner bottom 35%").
+  PART 3 SCENE: Start from the base scene: "{room_visual}". Then add what is SPECIFIC to this pin's angle:
+    - Exact product type visible (material, color, size)
+    - What is inside/around it
+    - Camera angle: overhead / eye-level / 45° / close-up
+    - Lighting: "warm morning sunlight from left window" / "soft diffused studio light, white walls" / "golden hour side-lighting"
+  PART 4 TEXT ON IMAGE (Flux renders this):
+    - Dark semi-transparent gradient overlay on bottom 35%
+    - text reads exactly "[LINE1 from text_on_pin]" — large bold white Impact/sans-serif font, centered
+    - text reads exactly "[LINE2 from text_on_pin]" — smaller white font below
+    - text reads exactly "{WEBSITE}" — small white font at bottom
+  PART 5 STYLE: "Photorealistic interior lifestyle photography, Canon 5D, 35mm lens, shallow depth of field, 8K sharp, clean composition. No watermarks, no people, no text outside the designated text area, Pinterest vertical format."
+
+  EXAMPLE of a good flux_prompt:
+  "A professional Pinterest pin image, vertical format, 2:3 aspect ratio, 1000x1440 pixels. Layout: full bleed photo top 65%, dark gradient text banner bottom 35%. Scene: white modern kitchen cabinet, iDesign wire under-shelf basket clipped to underside of white wood shelf, holding small olive oil bottles and spice jars neatly arranged, warm morning sunlight streaming from left window, soft shadow on wall behind, camera angle slightly below eye-level looking up at basket, 35mm lens shallow depth of field. Dark semi-transparent gradient overlay on bottom 35%, text reads exactly 'TESTED: 7 SHELF BASKETS' in large bold white Impact font centered, text reads exactly '$12 · 4.7★ on Amazon' in smaller white font below, text reads exactly 'smarthomeorganizing.com' in small white font at bottom. Photorealistic interior lifestyle photography, Canon 5D, 8K sharp, clean composition. No watermarks, no people, no text outside the banner, Pinterest vertical format."
+
+Return valid JSON in this exact format:
+{{
+  "blog_analysis": {{
+    "blog_topic": "topic in 5 words",
+    "blog_contains": ["content type 1", "content type 2"],
+    "primary_keywords": ["kw1", "kw2", "kw3"]
+  }},
+  "pins": [
+    {{
+      "pin_number": 1,
+      "pin_idea": "...",
+      "why_this_pin": "...",
+      "pinterest_title": "...",
+      "pinterest_description": "...",
+      "text_on_pin": {{"line1": "...", "line2": "...", "line3": "", "website": "{WEBSITE}"}},
+      "flux_prompt": "..."
+    }}
+  ]
+}}"""
+
+    raw = ask_groq(prompt, max_tokens=8192, json_mode=True)
+
+    # Parse response
     try:
-        start = raw.find('[')
-        end = raw.rfind(']') + 1
-        pins_data = json.loads(raw[start:end])
-    except Exception:
+        data = json.loads(raw)
+        pins_data = data.get('pins', [])
+        analysis = data.get('blog_analysis', {})
+        print(f"  Blog topic: {analysis.get('blog_topic', '')}")
+        print(f"  Content types: {', '.join(analysis.get('blog_contains', [])[:5])}")
+    except Exception as e:
+        print(f"  [!] JSON parse error: {e}")
         pins_data = []
 
-    # Get Pinterest topic tags for this category
     topic_tags = TOPIC_TAGS.get(category, TOPIC_TAGS["general"])
 
     pins = []
     for i, pin in enumerate(pins_data):
         pins.append({
             "pin_number":     i + 1,
-            "style":          pin.get("template_name", ""),
-            "template_code":  pin.get("template_code", ""),
-            "title":          pin.get("title", ""),
-            "description":    pin.get("description", "").rstrip() + f"\n\n{pin.get('hashtags', '')}",
-            "freepik_prompt": pin.get("freepik_prompt", ""),
+            "style":          pin.get("pin_idea", ""),
+            "title":          pin.get("pinterest_title", ""),
+            "description":    pin.get("pinterest_description", ""),
+            "freepik_prompt": pin.get("flux_prompt", ""),
             "link":           blog_url,
             "board_id":       board_id,
             "topic_tags":     topic_tags,
