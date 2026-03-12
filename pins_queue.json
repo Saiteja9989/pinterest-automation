@@ -19,7 +19,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog3_pin1.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog3_pin1.jpg",
       "posted": true,
       "blog_number": 3
     },
@@ -42,7 +42,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog3_pin2.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog3_pin2.jpg",
       "posted": true,
       "blog_number": 3
     },
@@ -65,7 +65,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog3_pin3.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog3_pin3.jpg",
       "posted": true,
       "blog_number": 3
     },
@@ -88,7 +88,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog3_pin4.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog3_pin4.jpg",
       "posted": true,
       "blog_number": 3
     },
@@ -111,7 +111,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog3_pin5.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog3_pin5.jpg",
       "posted": true,
       "blog_number": 3
     },
@@ -157,7 +157,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog3_pin7.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog3_pin7.jpg",
       "posted": false,
       "blog_number": 3
     },
@@ -180,7 +180,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog3_pin8.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog3_pin8.jpg",
       "posted": false,
       "blog_number": 3
     },
@@ -203,7 +203,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog3_pin9.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog3_pin9.jpg",
       "posted": false,
       "blog_number": 3
     },
@@ -226,7 +226,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog3_pin10.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog3_pin10.jpg",
       "posted": false,
       "blog_number": 3
     },
@@ -249,8 +249,8 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog4_pin1.jpg",
-      "posted": true,
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog4_pin1.jpg",
+      "posted": false,
       "blog_number": 4
     },
     {
@@ -272,7 +272,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog4_pin2.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog4_pin2.jpg",
       "posted": false,
       "blog_number": 4
     },
@@ -295,7 +295,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog4_pin3.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog4_pin3.jpg",
       "posted": false,
       "blog_number": 4
     },
@@ -318,7 +318,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog4_pin4.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog4_pin4.jpg",
       "posted": false,
       "blog_number": 4
     },
@@ -341,7 +341,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog4_pin5.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog4_pin5.jpg",
       "posted": false,
       "blog_number": 4
     },
@@ -387,7 +387,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog4_pin7.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog4_pin7.jpg",
       "posted": false,
       "blog_number": 4
     },
@@ -410,7 +410,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog4_pin8.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog4_pin8.jpg",
       "posted": false,
       "blog_number": 4
     },
@@ -433,7 +433,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog4_pin9.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog4_pin9.jpg",
       "posted": false,
       "blog_number": 4
     },
@@ -456,7 +456,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog4_pin10.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog4_pin10.jpg",
       "posted": false,
       "blog_number": 4
     },
@@ -479,8 +479,8 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog5_pin1.jpg",
-      "posted": true,
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog5_pin1.jpg",
+      "posted": false,
       "blog_number": 5
     },
     {
@@ -502,7 +502,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog5_pin2.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog5_pin2.jpg",
       "posted": false,
       "blog_number": 5
     },
@@ -525,7 +525,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog5_pin3.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog5_pin3.jpg",
       "posted": false,
       "blog_number": 5
     },
@@ -548,7 +548,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog5_pin4.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog5_pin4.jpg",
       "posted": false,
       "blog_number": 5
     },
@@ -571,7 +571,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog5_pin5.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog5_pin5.jpg",
       "posted": false,
       "blog_number": 5
     },
@@ -594,7 +594,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog5_pin6.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog5_pin6.jpg",
       "posted": false,
       "blog_number": 5
     },
@@ -617,7 +617,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog5_pin7.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog5_pin7.jpg",
       "posted": false,
       "blog_number": 5
     },
@@ -640,7 +640,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog5_pin8.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog5_pin8.jpg",
       "posted": false,
       "blog_number": 5
     },
@@ -663,7 +663,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog5_pin9.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog5_pin9.jpg",
       "posted": false,
       "blog_number": 5
     },
@@ -686,7 +686,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog5_pin10.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog5_pin10.jpg",
       "posted": false,
       "blog_number": 5
     },
@@ -709,7 +709,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog6_pin1.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog6_pin1.jpg",
       "posted": false,
       "blog_number": 6
     },
@@ -732,7 +732,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog6_pin2.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog6_pin2.jpg",
       "posted": false,
       "blog_number": 6
     },
@@ -755,7 +755,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog6_pin3.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog6_pin3.jpg",
       "posted": false,
       "blog_number": 6
     },
@@ -778,7 +778,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog6_pin4.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog6_pin4.jpg",
       "posted": false,
       "blog_number": 6
     },
@@ -801,7 +801,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog6_pin5.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog6_pin5.jpg",
       "posted": false,
       "blog_number": 6
     },
@@ -824,7 +824,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog6_pin6.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog6_pin6.jpg",
       "posted": false,
       "blog_number": 6
     },
@@ -847,7 +847,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog6_pin7.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog6_pin7.jpg",
       "posted": false,
       "blog_number": 6
     },
@@ -870,7 +870,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog6_pin8.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog6_pin8.jpg",
       "posted": false,
       "blog_number": 6
     },
@@ -893,7 +893,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog6_pin9.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog6_pin9.jpg",
       "posted": false,
       "blog_number": 6
     },
@@ -916,7 +916,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog6_pin10.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog6_pin10.jpg",
       "posted": false,
       "blog_number": 6
     },
@@ -939,7 +939,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog7_pin1.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog7_pin1.jpg",
       "posted": false,
       "blog_number": 7
     },
@@ -962,7 +962,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog7_pin2.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog7_pin2.jpg",
       "posted": false,
       "blog_number": 7
     },
@@ -985,7 +985,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog7_pin3.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog7_pin3.jpg",
       "posted": false,
       "blog_number": 7
     },
@@ -1008,7 +1008,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog7_pin4.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog7_pin4.jpg",
       "posted": false,
       "blog_number": 7
     },
@@ -1031,7 +1031,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog7_pin5.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog7_pin5.jpg",
       "posted": false,
       "blog_number": 7
     },
@@ -1054,7 +1054,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog7_pin6.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog7_pin6.jpg",
       "posted": false,
       "blog_number": 7
     },
@@ -1077,7 +1077,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog7_pin7.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog7_pin7.jpg",
       "posted": false,
       "blog_number": 7
     },
@@ -1100,7 +1100,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog7_pin8.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog7_pin8.jpg",
       "posted": false,
       "blog_number": 7
     },
@@ -1123,7 +1123,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog7_pin9.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog7_pin9.jpg",
       "posted": false,
       "blog_number": 7
     },
@@ -1169,7 +1169,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog8_pin1.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog8_pin1.jpg",
       "posted": false,
       "blog_number": 8
     },
@@ -1192,7 +1192,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog8_pin2.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog8_pin2.jpg",
       "posted": false,
       "blog_number": 8
     },
@@ -1215,7 +1215,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog8_pin3.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog8_pin3.jpg",
       "posted": false,
       "blog_number": 8
     },
@@ -1238,7 +1238,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog8_pin4.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog8_pin4.jpg",
       "posted": false,
       "blog_number": 8
     },
@@ -1284,7 +1284,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog8_pin6.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog8_pin6.jpg",
       "posted": false,
       "blog_number": 8
     },
@@ -1307,7 +1307,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog8_pin7.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog8_pin7.jpg",
       "posted": false,
       "blog_number": 8
     },
@@ -1330,7 +1330,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog8_pin8.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog8_pin8.jpg",
       "posted": false,
       "blog_number": 8
     },
@@ -1353,7 +1353,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog8_pin9.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog8_pin9.jpg",
       "posted": false,
       "blog_number": 8
     },
@@ -1399,7 +1399,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog9_pin1.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog9_pin1.jpg",
       "posted": false,
       "blog_number": 9
     },
@@ -1422,7 +1422,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog9_pin2.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog9_pin2.jpg",
       "posted": false,
       "blog_number": 9
     },
@@ -1445,7 +1445,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog9_pin3.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog9_pin3.jpg",
       "posted": false,
       "blog_number": 9
     },
@@ -1468,7 +1468,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog9_pin4.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog9_pin4.jpg",
       "posted": false,
       "blog_number": 9
     },
@@ -1629,7 +1629,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog10_pin1.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog10_pin1.jpg",
       "posted": false,
       "blog_number": 10
     },
@@ -1652,7 +1652,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog10_pin2.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog10_pin2.jpg",
       "posted": false,
       "blog_number": 10
     },
@@ -1675,7 +1675,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog10_pin3.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog10_pin3.jpg",
       "posted": false,
       "blog_number": 10
     },
@@ -1698,7 +1698,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog10_pin4.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog10_pin4.jpg",
       "posted": false,
       "blog_number": 10
     },
@@ -1721,7 +1721,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog10_pin5.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog10_pin5.jpg",
       "posted": false,
       "blog_number": 10
     },
@@ -1744,7 +1744,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog10_pin6.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog10_pin6.jpg",
       "posted": false,
       "blog_number": 10
     },
@@ -1767,7 +1767,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog10_pin7.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog10_pin7.jpg",
       "posted": false,
       "blog_number": 10
     },
@@ -1790,7 +1790,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog10_pin8.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog10_pin8.jpg",
       "posted": false,
       "blog_number": 10
     },
@@ -1813,7 +1813,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog10_pin9.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog10_pin9.jpg",
       "posted": false,
       "blog_number": 10
     },
@@ -1836,7 +1836,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog10_pin10.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog10_pin10.jpg",
       "posted": false,
       "blog_number": 10
     },
@@ -1859,7 +1859,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog11_pin1.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog11_pin1.jpg",
       "posted": false,
       "blog_number": 11
     },
@@ -1882,7 +1882,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog11_pin2.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog11_pin2.jpg",
       "posted": false,
       "blog_number": 11
     },
@@ -1905,7 +1905,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog11_pin3.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog11_pin3.jpg",
       "posted": false,
       "blog_number": 11
     },
@@ -1928,7 +1928,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog11_pin4.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog11_pin4.jpg",
       "posted": false,
       "blog_number": 11
     },
@@ -1951,7 +1951,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog11_pin5.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog11_pin5.jpg",
       "posted": false,
       "blog_number": 11
     },
@@ -1974,7 +1974,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog11_pin6.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog11_pin6.jpg",
       "posted": false,
       "blog_number": 11
     },
@@ -1997,7 +1997,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog11_pin7.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog11_pin7.jpg",
       "posted": false,
       "blog_number": 11
     },
@@ -2020,7 +2020,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog11_pin8.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog11_pin8.jpg",
       "posted": false,
       "blog_number": 11
     },
@@ -2043,7 +2043,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog11_pin9.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog11_pin9.jpg",
       "posted": false,
       "blog_number": 11
     },
@@ -2066,7 +2066,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog11_pin10.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog11_pin10.jpg",
       "posted": false,
       "blog_number": 11
     },
@@ -2089,7 +2089,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog12_pin1.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog12_pin1.jpg",
       "posted": false,
       "blog_number": 12
     },
@@ -2112,7 +2112,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog12_pin2.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog12_pin2.jpg",
       "posted": false,
       "blog_number": 12
     },
@@ -2135,7 +2135,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog12_pin3.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog12_pin3.jpg",
       "posted": false,
       "blog_number": 12
     },
@@ -2158,7 +2158,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog12_pin4.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog12_pin4.jpg",
       "posted": false,
       "blog_number": 12
     },
@@ -2181,7 +2181,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog12_pin5.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog12_pin5.jpg",
       "posted": false,
       "blog_number": 12
     },
@@ -2204,7 +2204,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog12_pin6.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog12_pin6.jpg",
       "posted": false,
       "blog_number": 12
     },
@@ -2227,7 +2227,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog12_pin7.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog12_pin7.jpg",
       "posted": false,
       "blog_number": 12
     },
@@ -2250,7 +2250,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog12_pin8.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog12_pin8.jpg",
       "posted": false,
       "blog_number": 12
     },
@@ -2273,7 +2273,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog12_pin9.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog12_pin9.jpg",
       "posted": false,
       "blog_number": 12
     },
@@ -2296,7 +2296,7 @@
         "diy_and_crafts"
       ],
       "category": "kitchen",
-      "image_url": "images\\blog12_pin10.jpg",
+      "image_url": "https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main/images/blog12_pin10.jpg",
       "posted": false,
       "blog_number": 12
     }
