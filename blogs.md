@@ -20,12 +20,12 @@
 | 10 | The Best Lazy Susan Organizers Amazon Sells in 2026 | ✅ Done |
 | 11 | 7 Kitchen Shelf Organizers That Double Your Storage Instantly | ✅ Done |
 | 12 | I Organized My Messy Utensil Drawer with a $12 Organizer | ✅ Done |
-| 13 | The Only Coffee Station Organizer You Need in 2026 | ✅ Done |
-| 14 | 9 Stackable Food Container Organizers for a Pinterest-Worthy Pantry | ✅ Done |
-| 15 | How to Organize Your Pots and Pans (No More Crashing Lids) | ✅ Done |
-| 16 | 9 Cheap Kitchen Organizers That Look Ridiculously Expensive | ✅ Done |
-| 17 | Amazon's Best Countertop Organizers Under $25 in 2026 |  ✅ Done  |
-| 18 | The $18 Cutting Board Organizer That Saves Drawer Space | ✅ Done |
+| 13 | The Only Coffee Station Organizer You Need in 2026 | ✅ Done  |
+| 14 | 9 Stackable Food Container Organizers for a Pinterest-Worthy Pantry | ⬜ Pending  |
+| 15 | How to Organize Your Pots and Pans (No More Crashing Lids) | ⬜ Pending  |
+| 16 | 9 Cheap Kitchen Organizers That Look Ridiculously Expensive | ⬜ Pending  |
+| 17 | Amazon's Best Countertop Organizers Under $25 in 2026 | ⬜ Pending   |
+| 18 | The $18 Cutting Board Organizer That Saves Drawer Space | ⬜ Pending  |
 | 19 | 9 Trash Can Organizers for Kitchens with Zero Counter Space | ⬜ Pending |
 | 20 | Professional Organizers Swear by These Kitchen Cabinet Organizers | ⬜ Pending |
 | 21 | 9 Bathroom Under Sink Organizers That Fit Any Cabinet Size | ⬜ Pending |
