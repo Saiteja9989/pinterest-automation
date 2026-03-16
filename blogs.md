@@ -25,7 +25,7 @@
 | 15 | How to Organize Your Pots and Pans (No More Crashing Lids) | ✅ Done |
 | 16 | 9 Cheap Kitchen Organizers That Look Ridiculously Expensive | ✅ Done |
 | 17 | Amazon's Best Countertop Organizers Under $25 in 2026 |  ✅ Done  |
-| 18 | The $18 Cutting Board Organizer That Saves Drawer Space | ⬜ Pending |
+| 18 | The $18 Cutting Board Organizer That Saves Drawer Space | ✅ Done |
 | 19 | 9 Trash Can Organizers for Kitchens with Zero Counter Space | ⬜ Pending |
 | 20 | Professional Organizers Swear by These Kitchen Cabinet Organizers | ⬜ Pending |
 | 21 | 9 Bathroom Under Sink Organizers That Fit Any Cabinet Size | ⬜ Pending |
