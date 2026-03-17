@@ -1,4 +1,275 @@
 {
   "posting_enabled": false,
-  "pins": []
+  "pins": [
+    {
+      "pin_number": 1,
+      "pin_type": "listicle",
+      "title": "9 Stackable Food Containers for a Pinterest-Worthy Pantry Makeover",
+      "description": "Discover 9 top-rated stackable food container organizers to transform your pantry into a Pinterest dream! From airtight jars for pasta to large bulk storage, these solutions average 4.8 stars. #PantryOrganization #KitchenStorage #FoodContainers #HomeDecor #AirtightStorage Save this pin!",
+      "text_on_pin": {
+        "line1": "9 PANTRY ORGANIZERS",
+        "line2": "INSTANT PANTRY GLOW-UP",
+        "line3": "SHOP TOP PICKS"
+      },
+      "freepik_prompt": "Pinterest pin, portrait 2:3, 1000x1500px. Full-bleed photorealistic lifestyle photo of an exquisitely organized, brightly lit pantry shelf displaying a variety of clear stackable food storage containers like the Chef's Path Kitchen Storage Box Set and Vtopmart 24 pcs Plastic Kitchen and Pantry Organization Canisters, filled with visually appealing dry goods such as colorful pasta, oats, and cereals, clean white shelving, no people, warm natural light. Dark gradient overlay from bottom 55% upward. On gradient: bold large white uppercase sans-serif text '9 PANTRY ORGANIZERS' centered. White medium text 'INSTANT PANTRY GLOW-UP' below. White small text 'SHOP TOP PICKS' with a subtle right-arrow icon. Small white text 'smarthomeorganizing.com' at bottom. Sharp focus, high resolution, professional photography.",
+      "link": "https://smarthomeorganizing.blogspot.com/2026/03/9-stackable-food-container-organizers_0670104177.html",
+      "board_id": "1133007287445630608",
+      "topic_tags": [
+        "home_decor",
+        "organization",
+        "cleaning_and_organizing",
+        "kitchen",
+        "storage_ideas",
+        "home_improvement",
+        "diy_and_crafts"
+      ],
+      "category": "kitchen",
+      "image_url": "images\\blog14_pin1.jpg",
+      "posted": false,
+      "blog_number": 14
+    },
+    {
+      "pin_number": 2,
+      "pin_type": "listicle",
+      "title": "Best Airtight Food Storage Containers Under $35 for Your Pantry",
+      "description": "Upgrade your pantry without breaking the bank! We found the best airtight food storage containers under $35, including options from Vtopmart and Shazo, perfect for keeping staples fresh. #BudgetOrganization #AirtightContainers #PantryGoals #KitchenEssentials #AffordableFinds Save this pin!",
+      "text_on_pin": {
+        "line1": "TOP-RATED CONTAINERS",
+        "line2": "UNDER $35 AMAZON",
+        "line3": "GET YOURS NOW"
+      },
+      "freepik_prompt": "Pinterest pin, portrait 2:3, 1000x1500px. Magazine cover style: full-bleed photo of a clean, minimalist kitchen pantry shelf featuring 3-4 different brands of clear stackable food storage containers from the blog (e.g., Vtopmart 24 pcs Plastic Kitchen and Pantry Organization Canisters, Shazo 2 PC Extra Large Bulk Food Storage Containers, Chef's Path Kitchen Storage Box Set), some filled with colorful cereals or neatly stacked dry goods, brightly lit with soft, even lighting. White semi-transparent band at the top with bold black sans-serif text 'TOP-RATED CONTAINERS' and a smaller line 'UNDER $35 AMAZON'. White semi-transparent band at the bottom with black text 'GET YOURS NOW'. Small black text 'smarthomeorganizing.com' centered at the very bottom. High-resolution, professional studio photography.",
+      "link": "https://smarthomeorganizing.blogspot.com/2026/03/9-stackable-food-container-organizers_0670104177.html",
+      "board_id": "1133007287445630618",
+      "topic_tags": [
+        "home_decor",
+        "organization",
+        "cleaning_and_organizing",
+        "kitchen",
+        "storage_ideas",
+        "home_improvement",
+        "diy_and_crafts"
+      ],
+      "category": "kitchen",
+      "image_url": "images\\blog14_pin2.jpg",
+      "posted": false,
+      "blog_number": 14
+    },
+    {
+      "pin_number": 3,
+      "pin_type": "how-to",
+      "title": "How to Organize Your Pantry with Airtight Food Storage Containers",
+      "description": "Learn how to easily organize your pantry with airtight food storage containers! This guide shows you how to use items like the ProKeeper+ set to keep your flour, sugar, and cereals fresh and tidy. #PantryHacks #KitchenOrganization #FoodStorageTips #OrganizingIdeas #HomeManagement Save this pin!",
+      "text_on_pin": {
+        "line1": "HOW TO ORGANIZE",
+        "line2": "YOUR PANTRY EASILY",
+        "line3": "GET THE GUIDE"
+      },
+      "freepik_prompt": "Pinterest pin, portrait 2:3, 1000x1500px. Split panel design. Top panel: a close-up, high-angle shot of a hand meticulously pouring cereal into a clear ProKeeper+ Airtight Food Storage Container, with other ProKeeper+ containers subtly blurred in the background on a clean pantry shelf, soft lighting, no people. Bottom panel: a solid deep forest green color block. On the top panel: bold white uppercase sans-serif text 'HOW TO ORGANIZE' centered. On the bottom panel: white uppercase sans-serif text 'YOUR PANTRY EASILY' at the top of the green block, and 'GET THE GUIDE' in a slightly larger font below. Small white text 'smarthomeorganizing.com' at the very bottom of the green panel. Sharp focus, clean design.",
+      "link": "https://smarthomeorganizing.blogspot.com/2026/03/9-stackable-food-container-organizers_0670104177.html",
+      "board_id": "1133007287445630608",
+      "topic_tags": [
+        "home_decor",
+        "organization",
+        "cleaning_and_organizing",
+        "kitchen",
+        "storage_ideas",
+        "home_improvement",
+        "diy_and_crafts"
+      ],
+      "category": "kitchen",
+      "image_url": "images\\blog14_pin3.jpg",
+      "posted": false,
+      "blog_number": 14
+    },
+    {
+      "pin_number": 4,
+      "pin_type": "bold statement",
+      "title": "Is Your Pantry REALLY Pinterest-Worthy? Upgrade Your Food Storage!",
+      "description": "Stop dreaming, start doing! Is your pantry *really* Pinterest-worthy? Elevate your organization with stackable food containers like the Shazo Extra Large Bulk Food Storage Containers and transform your space. #PantryGoals #KitchenUpgrade #HomeOrganization #DreamPantry #FoodStorage Save this pin!",
+      "text_on_pin": {
+        "line1": "IS YOUR PANTRY",
+        "line2": "REALLY PINTEREST-WORTHY?",
+        "line3": "UPGRADE YOURS NOW"
+      },
+      "freepik_prompt": "Pinterest pin, portrait 2:3, 1000x1500px. Solid vibrant coral pink background. Huge white bold sans-serif text 'IS YOUR PANTRY' centered in the upper half. Slightly smaller white bold sans-serif text 'REALLY PINTEREST-WORTHY?' below it. A single, perfectly centered clear Shazo 2 PC Extra Large Bulk Food Storage Container filled with white flour, illuminated with a soft rim light for emphasis, casting a subtle shadow. Below the container: 'UPGRADE YOURS NOW' in white, slightly smaller font. Small white text 'smarthomeorganizing.com' at bottom. Professional graphic design, clean and striking.",
+      "link": "https://smarthomeorganizing.blogspot.com/2026/03/9-stackable-food-container-organizers_0670104177.html",
+      "board_id": "1133007287445630608",
+      "topic_tags": [
+        "home_decor",
+        "organization",
+        "cleaning_and_organizing",
+        "kitchen",
+        "storage_ideas",
+        "home_improvement",
+        "diy_and_crafts"
+      ],
+      "category": "kitchen",
+      "image_url": "images\\blog14_pin4.jpg",
+      "posted": false,
+      "blog_number": 14
+    },
+    {
+      "pin_number": 5,
+      "pin_type": "key insight",
+      "title": "The Secret to a Fresh Pantry: Airtight Food Storage Containers",
+      "description": "Unlock the secret to a perpetually fresh pantry! Airtight food storage containers like the Ziploc Brand Twist n Loc or Rubbermaid Premier are essential for keeping food fresh longer and preventing pests. #FreshFood #PantrySecrets #KitchenHacks #FoodPreservation #SmartStorage Save this pin!",
+      "text_on_pin": {
+        "line1": "FRESH FOOD SECRET",
+        "line2": "AIRTIGHT STORAGE",
+        "line3": "LEARN MORE"
+      },
+      "freepik_prompt": "Pinterest pin, portrait 2:3, 1000x1500px. Dark editorial style: deep charcoal grey background with a subtle, luxurious texture. Thin gold accent lines forming a minimalist geometric pattern around a centered clear Rubbermaid Premier Food Storage Container (a single container from the set), perfectly closed and filled with vibrant green lentils, illuminated with a soft rim light. Above the container: bold white sans-serif text 'FRESH FOOD SECRET'. Below the container: 'AIRTIGHT STORAGE' in gold, and 'LEARN MORE' in white below that. Small gold text 'smarthomeorganizing.com' at bottom. High-end product photography, elegant and sleek.",
+      "link": "https://smarthomeorganizing.blogspot.com/2026/03/9-stackable-food-container-organizers_0670104177.html",
+      "board_id": "1133007287445630608",
+      "topic_tags": [
+        "home_decor",
+        "organization",
+        "cleaning_and_organizing",
+        "kitchen",
+        "storage_ideas",
+        "home_improvement",
+        "diy_and_crafts"
+      ],
+      "category": "kitchen",
+      "image_url": "images\\blog14_pin5.jpg",
+      "posted": false,
+      "blog_number": 14
+    },
+    {
+      "pin_number": 6,
+      "pin_type": "stat/price",
+      "title": "$10.99 Pantry Organizers: Budget-Friendly Food Storage Solutions",
+      "description": "Yes, you can get a Pinterest-worthy pantry for less! Grab stackable food container organizers starting at just $10.99, like the Sistema Lunch Collection. Perfect for snacks, lunches, and small spaces. #BudgetFinds #CheapKitchen #PantryHacks #Sistema #AmazonDeals Save this pin!",
+      "text_on_pin": {
+        "line1": "PANTRY MAKEOVER",
+        "line2": "STARTS AT $10.99",
+        "line3": "SHOP BUDGET BUYS"
+      },
+      "freepik_prompt": "Pinterest pin, portrait 2:3, 1000x1500px. Clean white background. Large circular vivid teal price badge at top left with bold white text '$10.99' inside, slightly angled. Centered below the price badge: a well-lit studio shot of the Sistema Lunch Collection Food Storage Containers (3 count, pink/green/blue), neatly stacked and arranged to showcase their compact size. Five gold stars arranged in an arc below the price badge. Below the containers: 'PANTRY MAKEOVER' in dark grey, and 'STARTS AT $10.99' in a slightly bolder font. Bottom: a rectangular teal button with 'SHOP BUDGET BUYS' in white. Small dark grey text 'smarthomeorganizing.com' at bottom. Bright, clean product photography.",
+      "link": "https://smarthomeorganizing.blogspot.com/2026/03/9-stackable-food-container-organizers_0670104177.html",
+      "board_id": "1133007287445630618",
+      "topic_tags": [
+        "home_decor",
+        "organization",
+        "cleaning_and_organizing",
+        "kitchen",
+        "storage_ideas",
+        "home_improvement",
+        "diy_and_crafts"
+      ],
+      "category": "kitchen",
+      "image_url": "images\\blog14_pin6.jpg",
+      "posted": false,
+      "blog_number": 14
+    },
+    {
+      "pin_number": 7,
+      "pin_type": "checklist",
+      "title": "Before You Buy: Your Ultimate Stackable Food Container Checklist",
+      "description": "Don't buy the wrong containers! Use our checklist to ensure your stackable food storage containers are BPA-free, airtight, and truly Pinterest-worthy. Featuring tips for brands like OXO and Rubbermaid. #BuyingGuide #PantryTips #SmartShopping #KitchenChecklist #ContainerGoals Save this pin!",
+      "text_on_pin": {
+        "line1": "BEFORE YOU BUY",
+        "line2": "CONTAINER CHECKLIST",
+        "line3": "GET ORGANIZED"
+      },
+      "freepik_prompt": "Pinterest pin, portrait 2:3, 1000x1500px. Clean white background. At the top: a brightly lit, neatly arranged studio shot of a variety of clear stackable food storage containers (e.g., OXO Good Grips POP Container Accessories, Rubbermaid EasyStore Containers), some with their lids, showcasing different sizes and shapes, with a small scoop set visible. Below the photo: bold black sans-serif text 'BEFORE YOU BUY' centered. Followed by three bulleted rows with distinct green checkmark icons: 'BPA-FREE MATERIALS', 'AIRTIGHT SEALS', 'STACKABLE DESIGN' in black sans-serif text. Below the checklist: 'CONTAINER CHECKLIST' in bold black. Bottom: 'GET ORGANIZED' in black. Small black text 'smarthomeorganizing.com' at bottom. Crisp, clean graphic design.",
+      "link": "https://smarthomeorganizing.blogspot.com/2026/03/9-stackable-food-container-organizers_0670104177.html",
+      "board_id": "1133007287445633719",
+      "topic_tags": [
+        "home_decor",
+        "organization",
+        "cleaning_and_organizing",
+        "kitchen",
+        "storage_ideas",
+        "home_improvement",
+        "diy_and_crafts"
+      ],
+      "category": "kitchen",
+      "image_url": "images\\blog14_pin7.jpg",
+      "posted": false,
+      "blog_number": 14
+    },
+    {
+      "pin_number": 8,
+      "pin_type": "before/after",
+      "title": "Pantry Organization Before & After: Stackable Food Storage Containers",
+      "description": "Witness the magic of a pantry transformation! See the incredible before & after of a cluttered pantry turned Pinterest-worthy with stackable food storage containers like the ProKeeper+ set. #BeforeAndAfter #PantryMakeover #OrganizedHome #KitchenInspiration #StorageSolutions Save this pin!",
+      "text_on_pin": {
+        "line1": "PANTRY MAKEOVER",
+        "line2": "BEFORE & AFTER",
+        "line3": "SEE THE TRANSFORMATION"
+      },
+      "freepik_prompt": "Pinterest pin, portrait 2:3, 1000x1500px. Vertical split panel. Top half: 'BEFORE' label in white on a dark red banner, photo of a cluttered, messy pantry shelf with open bags of flour, cereal boxes, and various unorganized food items spilling out. Bottom half: 'AFTER' label in white on a rich forest green banner, photo of the exact same pantry shelf, now perfectly organized with clear stackable ProKeeper+ Airtight Food Storage Container Sets neatly aligned and uniformly labeled, clean and minimalist. On the dividing line between the two panels: 'PANTRY MAKEOVER' in bold white sans-serif text. Small white text 'smarthomeorganizing.com' at bottom. Realistic, high-contrast photography.",
+      "link": "https://smarthomeorganizing.blogspot.com/2026/03/9-stackable-food-container-organizers_0670104177.html",
+      "board_id": "1133007287445630608",
+      "topic_tags": [
+        "home_decor",
+        "organization",
+        "cleaning_and_organizing",
+        "kitchen",
+        "storage_ideas",
+        "home_improvement",
+        "diy_and_crafts"
+      ],
+      "category": "kitchen",
+      "image_url": "images\\blog14_pin8.jpg",
+      "posted": false,
+      "blog_number": 14
+    },
+    {
+      "pin_number": 9,
+      "pin_type": "problem/solution",
+      "title": "Stop Stale Food & Pantry Pests: Airtight Food Storage Solutions",
+      "description": "Tired of stale cereal and pantry pests? The solution is here! Discover airtight food storage containers like the Chef's Path Kitchen Storage Box Set, designed to keep your food fresh and your pantry pest-free. #FoodFreshness #PantryProblems #AirtightSolution #PestControl #KitchenSolutions Save this pin!",
+      "text_on_pin": {
+        "line1": "THE PROBLEM: STALE FOOD",
+        "line2": "THE SOLUTION: AIRTIGHT CONTAINERS",
+        "line3": "SHOP FRESHNESS"
+      },
+      "freepik_prompt": "Pinterest pin, portrait 2:3, 1000x1500px. Bold red top band with white uppercase sans-serif text 'THE PROBLEM: STALE FOOD'. Centered below: a high-resolution studio shot of a single Chef's Path Kitchen Storage Box (from the 8-jar set), perfectly sealed and filled with vibrant, fresh-looking spaghetti, highlighted against a neutral background. Below the product: a bold green bottom band with white uppercase sans-serif text 'THE SOLUTION: AIRTIGHT CONTAINERS'. On the product image, subtle white text overlay 'FRESHNESS GUARANTEED'. Small white text 'smarthomeorganizing.com' at very bottom. Clean, impactful graphic design.",
+      "link": "https://smarthomeorganizing.blogspot.com/2026/03/9-stackable-food-container-organizers_0670104177.html",
+      "board_id": "1133007287445633719",
+      "topic_tags": [
+        "home_decor",
+        "organization",
+        "cleaning_and_organizing",
+        "kitchen",
+        "storage_ideas",
+        "home_improvement",
+        "diy_and_crafts"
+      ],
+      "category": "kitchen",
+      "image_url": "images\\blog14_pin9.jpg",
+      "posted": false,
+      "blog_number": 14
+    },
+    {
+      "pin_number": 10,
+      "pin_type": "soft/aspirational",
+      "title": "Dream Pantry Goals: Aesthetic & Functional Food Container Organizers",
+      "description": "Imagine a pantry that's both beautiful and perfectly functional! Achieve your dream pantry goals with aesthetic and functional food container organizers, including the versatile OXO Good Grips POP Container Accessories. #DreamPantry #AestheticHome #KitchenGoals #OrganizedLiving #HomeInspo Save this pin!",
+      "text_on_pin": {
+        "line1": "DREAM PANTRY GOALS",
+        "line2": "ORGANIZE WITH STYLE",
+        "line3": "SHOP THE LOOK"
+      },
+      "freepik_prompt": "Pinterest pin, portrait 2:3, 1000x1500px. Soft pastel peach background with a subtle, delicate linen texture. Centered: a beautifully styled arrangement of two OXO Good Grips POP Containers, one larger filled with light brown sugar and a smaller one with coffee beans, both with their signature white lids, elegantly placed on a light natural wooden tray, accompanied by the OXO 3-Piece Scoop Set. Elegant italic serif text 'DREAM PANTRY GOALS' in a darker shade of peach above the product. Below the product: 'ORGANIZE WITH STYLE' in elegant italic. Small text 'smarthomeorganizing.com' at bottom. Soft focus background, professional flat lay photography, airy and inviting.",
+      "link": "https://smarthomeorganizing.blogspot.com/2026/03/9-stackable-food-container-organizers_0670104177.html",
+      "board_id": "1133007287445630608",
+      "topic_tags": [
+        "home_decor",
+        "organization",
+        "cleaning_and_organizing",
+        "kitchen",
+        "storage_ideas",
+        "home_improvement",
+        "diy_and_crafts"
+      ],
+      "category": "kitchen",
+      "image_url": "images\\blog14_pin10.jpg",
+      "posted": false,
+      "blog_number": 14
+    }
+  ]
 }
