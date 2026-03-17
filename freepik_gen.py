@@ -9,7 +9,7 @@ from io import BytesIO
 from PIL import Image
 from config import FREEPIK_API_KEY, IMAGE_WIDTH, IMAGE_HEIGHT
 
-FREEPIK_URL    = "https://api.freepik.com/v1/ai/text-to-image/flux-2-pro"
+FREEPIK_URL    = "https://api.freepik.com/v1/ai/text-to-image/seedream-v4-5"
 REFERENCE_PHOTO = "reference.jpg"
 IMAGES_DIR     = "images"  # local folder — committed to GitHub for permanent URLs
 
@@ -63,20 +63,25 @@ def generate_image(prompt, save_filename=None):
     if any(kw in prompt.lower() for kw in ["lifestyle photo", "dslr", "photography", "real photo", "interior photo"]):
         prompt = prompt + ", sharp focus, high resolution, natural lighting"
 
+    # Seedream v4.5 has a ~1000 char prompt limit — truncate cleanly at sentence boundary
+    if len(prompt) > 950:
+        prompt = prompt[:950].rsplit('.', 1)[0] + '.'
+
     body = {
         "prompt": prompt,
-        "width": IMAGE_WIDTH,
-        "height": IMAGE_HEIGHT,
-        "prompt_upsampling": True
+        "aspect_ratio": "portrait_2_3",   # Seedream param — 2:3 = Pinterest optimal
+        "enable_safety_checker": False,
     }
 
-    ref = load_reference_image()
-    if ref:
-        body["input_image"] = ref
-        print("  Using reference.jpg as style reference")
-
     res = requests.post(FREEPIK_URL, headers=headers, json=body)
-    data = res.json()
+    if not res.text.strip():
+        print(f"  Freepik error: empty response (HTTP {res.status_code})")
+        return None
+    try:
+        data = res.json()
+    except Exception:
+        print(f"  Freepik error: non-JSON response (HTTP {res.status_code}): {res.text[:200]}")
+        return None
 
     if "data" not in data:
         print(f"Freepik error: {data}")
@@ -135,19 +140,36 @@ def generate_image(prompt, save_filename=None):
     return None
 
 
-def generate_10_images(pins, blog_number):
+def generate_10_images(pins, blog_number, start_from=1):
     """Generate and download images for all 10 pins.
     Saves to images/blog{N}_pin{M}.jpg — committed to GitHub for permanent URLs.
+    Skips pins where the file already exists (safe to re-run after a crash).
+    start_from — only generate pins with pin_number >= this value (default=1 = all).
     """
-    print(f"\nGenerating {len(pins)} pin images with Freepik...")
+    os.makedirs(IMAGES_DIR, exist_ok=True)
+    print(f"\nGenerating pin images with Freepik (start_from pin {start_from})...")
     for i, pin in enumerate(pins):
         pin_num = pin.get("pin_number", i + 1)
         filename = f"blog{blog_number}_pin{pin_num}.jpg"
-        print(f"\nImage {i+1}/{len(pins)}: {pin['title'][:50]}...")
+        filepath = os.path.join(IMAGES_DIR, filename)
+
+        # Skip pins before start_from — assign existing file path if present
+        if pin_num < start_from:
+            pins[i]["image_url"] = filepath if os.path.exists(filepath) else ""
+            print(f"\nImage {i+1}/{len(pins)}: SKIP pin {pin_num} (before start_from={start_from})")
+            continue
+
+        # Skip if file already exists on disk (resume after crash)
+        if os.path.exists(filepath):
+            pins[i]["image_url"] = filepath
+            print(f"\nImage {i+1}/{len(pins)}: SKIP pin {pin_num} (file exists) — {filename}")
+            continue
+
+        print(f"\nImage {i+1}/{len(pins)}: {pin.get('title', '')[:50]}...")
         local_path = generate_image(pin["freepik_prompt"], save_filename=filename)
         if local_path:
-            pins[i]["image_url"] = local_path  # e.g. "images/blog3_pin1.jpg"
+            pins[i]["image_url"] = local_path
         else:
             pins[i]["image_url"] = ""
-            print(f"  Warning: No image for pin {i+1}")
+            print(f"  Warning: No image for pin {pin_num}")
     return pins

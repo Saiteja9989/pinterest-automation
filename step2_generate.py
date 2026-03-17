@@ -6,13 +6,12 @@ Usage: python step2_generate.py
 """
 import json
 import os
-import re
 from groq_gen import generate_blog_html, generate_pin_content
 from freepik_gen import generate_10_images
 from blogger_up import upload_blog_post
 
 INPUT_FILE        = 'blog_input.json'
-QUEUE_FILE        = 'pins_queue.json'
+QUEUE_FILE        = 'pins_queue_new.json'   # new queue — swap to pins_queue.json when current runs out
 USED_PRODUCTS_FILE = 'used_products.json'
 GITHUB_RAW        = 'https://raw.githubusercontent.com/Saiteja9989/pinterest-automation/main'
 
@@ -44,7 +43,7 @@ def save_used_products(blog_number, products):
 
 
 def load_input():
-    with open(INPUT_FILE, 'r') as f:
+    with open(INPUT_FILE, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 
@@ -78,23 +77,12 @@ def run():
     check_duplicate_products(products)
 
     # Step 1: Generate blog HTML
-    print("\n[1/4] Generating blog HTML with Groq...")
+    print("\n[1/4] Generating blog HTML with Gemini...")
     html = generate_blog_html(blog_title, category, products, blog_number)
     print(f"Blog HTML generated ({len(html)} chars)")
 
-    # Fix affiliate links — replace each orange CTA button href with the correct amzn.to link
-    # Groq may hallucinate or reorder links; this guarantees correct links in product order
-    for p in products:
-        link = p['affiliate_link']
-        html, n = re.subn(
-            r'(<a\s[^>]*href=")[^"]*"([^>]*(?:background|bg)[^>]*#ff9900[^>]*>)',
-            fr'\g<1>{link}"\2',
-            html, count=1, flags=re.IGNORECASE | re.DOTALL
-        )
-        if n == 0:
-            # Fallback: replace first unmatched amzn href
-            html = html.replace('[EXACT affiliate_link]', link, 1)
-    print(f"Affiliate links fixed in blog HTML")
+    # Affiliate links are embedded directly in the prompt by generate_blog_html()
+    # — no replacement needed here.
 
     # Step 2: Upload to Blogger
     print("\n[2/4] Uploading to Blogger...")
@@ -104,9 +92,13 @@ def run():
         return
 
     # Step 3: Generate 10 pin titles, descriptions, prompts
-    print("\n[3/4] Generating 10 pin contents with Groq...")
+    print("\n[3/4] Generating 10 pin contents with Gemini...")
     pins = generate_pin_content(blog_title, category, blog_url, products, blog_number, blog_html=html)
     print(f"Generated {len(pins)} pin contents")
+
+    if not pins:
+        print("\n❌ ERROR: 0 pins generated. Fix the JSON error above and run retry_pins.py.")
+        return
 
     # Step 4: Generate + download 10 pin images (saved to images/ folder)
     print("\n[4/4] Generating 10 pin images with Freepik...")
@@ -137,10 +129,19 @@ def run():
 
     # Push images + queue to GitHub
     print("Pushing to GitHub...")
-    os.system('git add images/ pins_queue.json blogs.md')
+    os.system(f'git add images/ {QUEUE_FILE} blogs.md')
     os.system(f'git commit -m "Add Blog #{blog_number} pins to queue"')
-    os.system('git push')
-    print("✅ Pushed!")
+    push_ret = os.system('git push')
+    if push_ret != 0:
+        print("  ⚠️  Push rejected — pulling remote changes first...")
+        os.system('git pull --rebase')
+        push_ret2 = os.system('git push')
+        if push_ret2 != 0:
+            print("  ❌ Push still failed. Run: git pull && git push manually.")
+        else:
+            print("✅ Pushed (after rebase)!")
+    else:
+        print("✅ Pushed!")
 
     # Now convert local image paths → permanent GitHub raw URLs in queue
     print("Updating image URLs to permanent GitHub raw links...")
@@ -153,9 +154,12 @@ def run():
             updated += 1
     if updated:
         save_queue(queue)
-        os.system('git add pins_queue.json')
+        os.system(f'git add {QUEUE_FILE}')
         os.system(f'git commit -m "Update Blog #{blog_number} image URLs to GitHub raw"')
-        os.system('git push')
+        push_ret3 = os.system('git push')
+        if push_ret3 != 0:
+            os.system('git pull --rebase')
+            os.system('git push')
         print(f"✅ {updated} image URLs updated to permanent GitHub links.")
 
     print("\nPins will start posting automatically via GitHub Actions.")

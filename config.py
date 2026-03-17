@@ -6,6 +6,8 @@ load_dotenv()  # auto-loads .env file — no manual export needed
 GROQ_API_KEY       = os.environ.get('GROQ_API_KEY', '')
 FREEPIK_API_KEY    = os.environ.get('FREEPIK_API_KEY', '')
 SCRAPER_API_KEY    = os.environ.get('SCRAPER_API_KEY', '')
+AMAZON_TAG         = os.environ.get('AMAZON_TAG', 'smarthomeorg-20')
+GEMINI_API_KEY     = os.environ.get('GEMINI_API_KEY', '')
 BLOGGER_BLOG_ID    = os.environ.get('BLOGGER_BLOG_ID', '1354075857324161808')
 MAKE_WEBHOOK_URL   = os.environ.get('MAKE_WEBHOOK_URL', '')
 GOOGLE_CREDENTIALS  = os.environ.get('GOOGLE_CREDENTIALS_JSON', '')  # contents of credentials.json
