@@ -30,10 +30,11 @@ def post_to_pinterest(pin):
 
     payload = {
         "title":       pin["title"],
-        "description": pin["description"],   # full description + hashtags combined
-        "image_url":   pin["image_url"],
+        "description": pin["description"],
+        "url":         pin["image_url"],     # Make.com Pinterest module expects 'url'
+        "image_url":   pin["image_url"],     # keep for backwards compat
         "link":        pin["link"],
-        "board_id":    pin["board_id"],
+        "board_id":    str(pin["board_id"]), # ensure string, not int
         "alt_text":    alt_text,
     }
     res = requests.post(MAKE_WEBHOOK_URL, json=payload, timeout=30)
