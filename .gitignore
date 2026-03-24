@@ -12,3 +12,6 @@ __pycache__/
 
 # Ignore the output video from Git but not videos you import into src/.
 out
+
+# Images stored on Cloudinary — not in repo
+images/
