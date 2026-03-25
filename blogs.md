@@ -36,7 +36,7 @@
 | 26 | How to Organize a Tiny Bathroom with Zero Extra Space | ✅ Done |
 | 27 | 9 Shower Caddies That Actually Stay Put (No More Falling) | ✅ Done |
 | 28 | The $15 Bathroom Drawer Organizer That Fits Everything | ✅ Done |
-| 29 | 9 Skincare Organizers for a Spa-Like Bathroom in 2026 | ⬜ Pending |
+| 29 | 9 Skincare Organizers for a Spa-Like Bathroom in 2026 | ✅ Done |
 | 30 | Stop Digging Through Your Medicine Cabinet — Get This Organizer | ⬜ Pending |
 | 31 | 9 Towel Organizers for Bathrooms with No Linen Closet | ⬜ Pending |
 | 32 | The Best Bathroom Counter Organizers for Tiny Vanities | ⬜ Pending |
