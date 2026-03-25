@@ -34,7 +34,7 @@
 | 24 | 9 Over Toilet Organizers That Don't Look Cheap | ✅ Done |
 | 25 | The Best Hair Tool Organizers for a Tangle-Free Bathroom | ✅ Done |
 | 26 | How to Organize a Tiny Bathroom with Zero Extra Space | ✅ Done |
-| 27 | 9 Shower Caddies That Actually Stay Put (No More Falling) | ⬜ Pending |
+| 27 | 9 Shower Caddies That Actually Stay Put (No More Falling) | ✅ Done |
 | 28 | The $15 Bathroom Drawer Organizer That Fits Everything | ⬜ Pending |
 | 29 | 9 Skincare Organizers for a Spa-Like Bathroom in 2026 | ⬜ Pending |
 | 30 | Stop Digging Through Your Medicine Cabinet — Get This Organizer | ⬜ Pending |
