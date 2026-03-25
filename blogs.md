@@ -30,7 +30,7 @@
 | 20 | Professional Organizers Swear by These Kitchen Cabinet Organizers | ✅ Done |
 | 21 | 9 Bathroom Under Sink Organizers That Fit Any Cabinet Size | ✅ Done |
 | 22 | Why Your Shower Always Looks Messy (The $10 Fix) | ✅ Done |
-| 23 | I Tried 8 Makeup Organizers — Here's the Only One Worth Buying | ⬜ Pending |
+| 23 | I Tried 8 Makeup Organizers — Here's the Only One Worth Buying | ✅ Done |
 | 24 | 9 Over Toilet Organizers That Don't Look Cheap | ⬜ Pending |
 | 25 | The Best Hair Tool Organizers for a Tangle-Free Bathroom | ⬜ Pending |
 | 26 | How to Organize a Tiny Bathroom with Zero Extra Space | ⬜ Pending |
